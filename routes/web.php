@@ -22,3 +22,9 @@ Route::get('listar-produtos', 'ProductController@index')->name('products');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/search', 'ProductController@search')->name('search-results');
+
+Route::get('/resultado-busca', function () {
+    return view('resultadoBusca');
+});

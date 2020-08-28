@@ -6,6 +6,7 @@ use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\User;
+use DB;
 
 
 class ProductController extends Controller
@@ -21,6 +22,17 @@ class ProductController extends Controller
         return view ('listarProdutos', [
             'products' => $products
         ]);
+    }
+
+    public function search(Request $request)
+    {
+        $search = $request->get('search');
+        $products = Product::where('name', 'LIKE', '%'.$search.'%')->get();
+        if(count($products) > 0){
+            return view ('resultadoBusca')->withDetails($products)->withQuery($search);
+        }else{
+            return view ('resultadoBusca')->withMessage('Nenhum resultado encontrado');
+        }
     }
 
     /**
