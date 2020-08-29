@@ -17,7 +17,7 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::with('user')->get();;
-        return view ('listarProdutos', [
+        return view('listarProdutos', [
             'products' => $products
         ]);
     }
@@ -27,9 +27,9 @@ class ProductController extends Controller
         $search = $request->get('search');
         $products = Product::where('name', 'LIKE', '%'.$search.'%')->get();
         if(count($products) > 0){
-            return view ('resultadoBusca')->withDetails($products)->withQuery($search);
+            return view('resultadoBusca')->withDetails($products)->withQuery($search);
         }else{
-            return view ('resultadoBusca')->withMessage('Nenhum resultado encontrado');
+            return view('resultadoBusca')->withMessage('Nenhum resultado encontrado');
         }
     }
 
@@ -40,7 +40,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return view('criarProduto');
     }
 
     /**
@@ -49,9 +49,16 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(User $user, Request $request)
     {
-        //
+        $userId = Auth::user()->id;
+        $product = new Product();
+        $product->user_id = $userId;
+        $product->name = $request->name;
+        $product->category = $request->category;
+        $product->save();
+
+        return redirect()->route('products');
     }
 
     /**

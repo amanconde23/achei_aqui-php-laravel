@@ -28,3 +28,8 @@ Route::get('/search', 'ProductController@search')->name('search-results');
 Route::get('/resultado-busca', function () {
     return view('resultadoBusca');
 });
+
+Route::get('produto/novo', 'ProductController@create')->name('product-new');
+
+Route::post('produto/store', 'ProductController@store')->name('product-store');
+
