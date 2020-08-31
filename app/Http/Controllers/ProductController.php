@@ -16,9 +16,24 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::with('user')->get();;
+        $products = Product::where(['user_id'=>Auth::user()->id])->get();
         return view('listarProdutos', [
             'products' => $products
+        ]);
+    }
+
+    public function showProductsAdmin(Product $products)
+    {
+        $products = Product::all();
+        return view('listarProdutos', [
+            'products' => $products
+        ]);
+    }
+
+    public function showOneProduct(Product $product)
+    {
+        return view('verProduto', [
+            'product' => $product
         ]);
     }
 
@@ -49,7 +64,7 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(User $user, Request $request)
+    public function store(Request $request)
     {
         $userId = Auth::user()->id;
         $product = new Product();
@@ -67,9 +82,13 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function showAllProducts(Product $product)
     {
-        //
+        $products = Product::all();
+        return view('listarTodosProdutos', [
+            'products' => $products
+        ]);
+
     }
 
     /**
@@ -78,9 +97,11 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
+    public function editProductForm(Product $product)
     {
-        //
+        return view('editarProduto', [
+            'product' => $product
+        ]);
     }
 
     /**
@@ -92,7 +113,13 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        $userId = Auth::user()->id;
+        $product->user_id = $userId;
+        $product->name = $request->name;
+        $product->category = $request->category;
+        $product->save();
+        
+        return redirect()->route('products');
     }
 
     /**
@@ -103,6 +130,8 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        $product->delete();
+        return redirect()->route('products');
     }
+    
 }

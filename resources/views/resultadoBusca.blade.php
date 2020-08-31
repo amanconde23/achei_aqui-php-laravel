@@ -9,6 +9,7 @@
         <tr>
             <td>{{ $product->name }}</td>
             <td>{{ $product->category }}</td>
+            <td><a href="{{ route('product-show-details', ['product' => $product->id]) }}">Ver Produto</a></td>
         </tr>
         @endforeach
     </table>
