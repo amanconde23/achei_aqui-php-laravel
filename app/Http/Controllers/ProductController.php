@@ -6,6 +6,7 @@ use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\User;
+use App\ProductImage;
 
 class ProductController extends Controller
 {
@@ -73,6 +74,18 @@ class ProductController extends Controller
         $product->category = $request->category;
         $product->save();
 
+        // upload de imagem
+        for ($i = 0; $i < count($request->allFiles()['images']); $i++){
+            $file = $request->allFiles()['images'][$i];
+
+            $productImage = new ProductImage();
+            $productImage->product_id = $product->id;
+            $productImage->path = $file->store('produtos/' . $product->id);
+            $productImage->save();
+            // limpa o campo antes de reiniciar o laço
+            // unset($productImage);
+        }
+
         return redirect()->route('products');
     }
 
@@ -113,12 +126,10 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        $userId = Auth::user()->id;
-        $product->user_id = $userId;
         $product->name = $request->name;
         $product->category = $request->category;
         $product->save();
-        
+
         return redirect()->route('products');
     }
 

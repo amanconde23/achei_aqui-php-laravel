@@ -15,5 +15,5 @@
     </table>
 @else
     <h1>{{ $message }}</h1>
-
+    <a href="{{ route('all-products') }}">Voltar para a página de produtos</a>
 @endif

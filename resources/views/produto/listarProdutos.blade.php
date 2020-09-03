@@ -9,6 +9,7 @@
     <h1>Listar Meus Produtos Cadastrados</h1>
     <table>
         <tr>
+            <td>Imagem</td>
             <td>ID</td>
             <td>Nome:</td>
             <td>Categoria:</td>
@@ -18,6 +19,11 @@
 
         @foreach ($products as $product)
         <tr>
+            <td>
+                @foreach($product->images as $image)
+                    <img src="{{ env('APP_URL') }}/storage/{{ $image->path }}" alt="">
+                @endforeach
+            </td>
             <td>{{ $product->id }}</td>
             <td>{{ $product->name }}</td>
             <td>{{ $product->category }}</td>

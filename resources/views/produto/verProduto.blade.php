@@ -12,5 +12,8 @@
     <p>{{ $product->user->name }}</p>
     <p>{{ $product->user->phone }}</p>
 
+    @foreach($product->images as $image)
+        <img src="{{ env('APP_URL') }}/storage/{{ $image->path }}" alt="">
+    @endforeach
 </body>
 </html>

@@ -16,6 +16,7 @@
 
     <table>
         <tr>
+            <td>Imagem</td>
             <td>ID</td>
             <td>Nome:</td>
             <td>Categoria:</td>
@@ -25,11 +26,19 @@
 
         @foreach ($products as $product)
         <tr>
+            <td>
+                @foreach($product->images as $image)
+                    <img src="{{ env('APP_URL') }}/storage/{{ $image->path }}" alt="">
+                @endforeach
+            </td>
             <td>{{ $product->id }}</td>
             <td>{{ $product->name }}</td>
             <td>{{ $product->category }}</td>
             <td>{{ $product->user->name }}</td>
             <td>{{ $product->user->phone }}</td>
+            <td>
+                <a href="{{ route('product-show-details', ['product' => $product->id]) }}">Ver Produto</a>
+            </td>
         </tr>
         @endforeach
     </table>
