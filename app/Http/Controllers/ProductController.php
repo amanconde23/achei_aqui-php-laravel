@@ -17,7 +17,7 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::where(['user_id'=>Auth::user()->id])->get();
-        return view('listarProdutos', [
+        return view('produto/listarProdutos', [
             'products' => $products
         ]);
     }
@@ -25,14 +25,14 @@ class ProductController extends Controller
     public function showProductsAdmin(Product $products)
     {
         $products = Product::all();
-        return view('listarProdutos', [
+        return view('produto/listarProdutos', [
             'products' => $products
         ]);
     }
 
     public function showOneProduct(Product $product)
     {
-        return view('verProduto', [
+        return view('produto/verProduto', [
             'product' => $product
         ]);
     }
@@ -55,7 +55,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('criarProduto');
+        return view('produto/criarProduto');
     }
 
     /**
@@ -85,7 +85,7 @@ class ProductController extends Controller
     public function showAllProducts(Product $product)
     {
         $products = Product::all();
-        return view('listarTodosProdutos', [
+        return view('produto/listarTodosProdutos', [
             'products' => $products
         ]);
 
@@ -99,7 +99,7 @@ class ProductController extends Controller
      */
     public function editProductForm(Product $product)
     {
-        return view('editarProduto', [
+        return view('produto/editarProduto', [
             'product' => $product
         ]);
     }

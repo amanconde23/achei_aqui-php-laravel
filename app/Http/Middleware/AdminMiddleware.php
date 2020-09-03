@@ -17,6 +17,7 @@ class AdminMiddleware
     public function handle($request, Closure $next)
     {
         if(Auth::user()->usertype == 'admin'){
+            // se a verificacao for true, ele passa para o proximo parametro (request q esta sendo feita)
             return $next($request);
         }else{
             return redirect('access-denied');

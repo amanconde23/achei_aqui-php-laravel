@@ -37,7 +37,7 @@ Route::group(['middleware' => ['auth','admin']], function(){
 
 // **ACCESS DENIED PAGE ** //
 Route::get('access-denied', function () {
-    return view('acessoNegado');
+    return view('admin/acessoNegado');
 });
 // **END ACCESS DENIED PAGE ** //
 
