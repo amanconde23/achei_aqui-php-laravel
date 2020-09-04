@@ -12,16 +12,11 @@ class Product extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id', 'name', 'category',
+        'user_id', 'name', 'category', 'image',
     ];
 
     public function user()
     {
         return $this->belongsTo('App\User');
-    }
-
-    public function images()
-    {
-        return $this->hasMany('App\ProductImage', 'product_id');
     }
 }

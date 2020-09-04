@@ -17,6 +17,6 @@
         <input type="text" name="category" value="{{ $product->category }}">
 
         <input type="submit" value="Editar Produto">
-    </form> 
+    </form>
 </body>
 </html>

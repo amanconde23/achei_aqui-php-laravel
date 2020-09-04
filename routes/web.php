@@ -88,6 +88,7 @@ Route::put('produto/edit/{product}', 'ProductController@update')->name('product-
 Route::delete('produto/destroy/{product}', 'ProductController@destroy')->name('product-destroy');
 // **END DELETE PRODUCT ** //
 
+
 // **UPLOAD IMAGES** //
 // formulario de upload de imagens
 Route::view('form', 'upload.form');
@@ -95,4 +96,3 @@ Route::view('form', 'upload.form');
 // Rota ação form upload de imagens
 Route::post('upload', 'UploadController@upload')->name('upload');
 // ** END UPLOAD IMAGES** //
-

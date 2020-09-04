@@ -26,11 +26,7 @@
 
         @foreach ($products as $product)
         <tr>
-            <td>
-                @foreach($product->images as $image)
-                    <img src="{{ env('APP_URL') }}/storage/{{ $image->path }}" alt="">
-                @endforeach
-            </td>
+            <td><img src="{{ env('APP_URL') }}/storage/{{ $product->image }}" alt=""></td>
             <td>{{ $product->id }}</td>
             <td>{{ $product->name }}</td>
             <td>{{ $product->category }}</td>

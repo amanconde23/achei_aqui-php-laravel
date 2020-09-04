@@ -16,7 +16,7 @@
         <input type="text" name="category">
 
         <label for="">Imagem do Produto:</label>
-        <input type="file" name="images[]" multiple>
+        <input type="file" name="image">
 
         <input type="submit" value="Cadastrar Produto">
     </form> 
