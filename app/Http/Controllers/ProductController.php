@@ -74,10 +74,7 @@ class ProductController extends Controller
         $product->category = $request->category;
 
         if($request->hasfile('image')){
-            $file = $request->file('image');
-            $extension = $file->getClientOriginalExtension();
-            $filename = time() . '.' . $extension;
-            
+            $file = $request->file('image');            
             $product->image = $file->store('produtos');
         } else {
             $product->image = '';
