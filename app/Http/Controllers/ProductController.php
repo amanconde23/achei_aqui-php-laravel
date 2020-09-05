@@ -127,8 +127,13 @@ class ProductController extends Controller
         $product = Product::find($id);
         $product->name = $request->name;
         $product->category = $request->category;
-        $product->save();
+        if($request->hasFile('image')){
+            $file = $request->file('image');
+            $product->image = $file->store('produtos');
+        } 
         
+        $product->save();
+                
         return redirect()->route('products');
     }
 
