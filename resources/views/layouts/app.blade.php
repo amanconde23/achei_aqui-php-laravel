@@ -21,7 +21,7 @@
     <script src="https://kit.fontawesome.com/a0b66fbad1.js" crossorigin="anonymous"></script>
 
     <!-- Styles -->
-    <link href="{{ asset('site/bootstrap.css') }}" rel="stylesheet">
+    <link href="{{ asset('site/style.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
