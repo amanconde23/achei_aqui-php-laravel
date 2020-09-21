@@ -25,9 +25,13 @@
             <td>{{ $user->usertype }}</td>
             <td>{{ $user->email }}</td>
             <td>
-                
+                <form action="{{ route('user-destroy', ['user' => $user->id]) }}" method="post">
+                    @csrf
+                    @method('delete')
+                    <input type="hidden" name="user-destroy" value="{{ $user->id }}">
+                    <input type="submit" value="Banir Usuário">
+                </form>
             </td>
-
         </tr>
         @endforeach
     </table>

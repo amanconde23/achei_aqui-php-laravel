@@ -34,6 +34,11 @@ Route::group(['middleware' => ['auth','admin']], function(){
     Route::get('admin-usuarios', 'UserController@index')->name('admin-users');
     // **END ADMIN PRODUCTS ** //
 
+    // **DELETE USER** //
+    // ação de apagar usuario
+    Route::delete('usuario/destroy/{user}', 'UserController@destroy')->name('user-destroy');
+    // **END DELETE USER ** //
+
     Route::view('sucesso', 'admin/usuario/sucesso');
 
 });
