@@ -25,7 +25,7 @@
             <td>{{ $user->usertype }}</td>
             <td>{{ $user->email }}</td>
             <td>
-                <a href="{{ route('user-edit-form', ['user' => $user->id]) }}">Editar Usuario</a>
+                
             </td>
 
         </tr>

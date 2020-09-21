@@ -30,21 +30,9 @@ Auth::routes();
 
 // **ROTAS ACESSADAS PELO ADMIN ** //
 Route::group(['middleware' => ['auth','admin']], function(){
-    // **SHOW ADMIN PRODUCTS ** //
-    Route::get('admin-produtos', 'ProductController@showProductsAdmin');
-    // **END ADMIN PRODUCTS ** //
-
     // **SHOW ADMIN USERS ** //
-    Route::get('admin-usuarios', 'UserController@index');
+    Route::get('admin-usuarios', 'UserController@index')->name('admin-users');
     // **END ADMIN PRODUCTS ** //
-
-    // **UPDATE USER** //
-    // formulario de editar produto
-    Route::get('usuario/editarform/{user}', 'UserController@editUserForm')->name('user-edit-form');
-
-    // ação de editar produto
-    Route::put('usuario/edit/{user}', 'UserController@update')->name('user-edit');
-    // **END UPDATE USER ** //
 
     Route::view('sucesso', 'admin/usuario/sucesso');
 

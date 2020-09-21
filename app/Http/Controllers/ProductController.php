@@ -6,12 +6,12 @@ use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\User;
-use App\ProductImage;
+use Illuminate\Support\Facades\Gate;
 
 class ProductController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Mostra lista com produtos do usuário
      *
      * @return \Illuminate\Http\Response
      */
@@ -23,14 +23,10 @@ class ProductController extends Controller
         ]);
     }
 
-    public function showProductsAdmin(Product $products)
-    {
-        $products = Product::all();
-        return view('produto/listarProdutos', [
-            'products' => $products
-        ]);
-    }
-
+    /**
+     * Mostra um produto em detalhes
+     *
+     */
     public function showOneProduct(Product $product)
     {
         return view('produto/verProduto', [
@@ -38,15 +34,18 @@ class ProductController extends Controller
         ]);
     }
 
-    public function search(Request $request)
+    /**
+     * Mostra todos os produtos cadastrados
+     *
+     * @param  \App\Product  $product
+     * @return \Illuminate\Http\Response
+     */
+    public function showAllProducts(Product $product)
     {
-        $search = $request->get('search');
-        $products = Product::where('name', 'LIKE', '%'.$search.'%')->get();
-        if(count($products) > 0){
-            return view('resultadoBusca')->withDetails($products)->withQuery($search);
-        }else{
-            return view('resultadoBusca')->withMessage('Nenhum resultado encontrado');
-        }
+        $products = Product::all();
+        return view('produto/listarTodosProdutos', [
+            'products' => $products
+        ]);
     }
 
     /**
@@ -86,20 +85,6 @@ class ProductController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  \App\Product  $product
-     * @return \Illuminate\Http\Response
-     */
-    public function showAllProducts(Product $product)
-    {
-        $products = Product::all();
-        return view('produto/listarTodosProdutos', [
-            'products' => $products
-        ]);
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Product  $product
@@ -107,6 +92,10 @@ class ProductController extends Controller
      */
     public function editProductForm(Product $product)
     {
+        if (Gate::denies('update', $product)) {
+            return view('admin/acessoNegado');
+        }
+
         return view('produto/editarProduto', [
             'product' => $product
         ]);
@@ -144,6 +133,21 @@ class ProductController extends Controller
     {
         $product->delete();
         return redirect()->route('products');
+    }
+
+    /**
+     * Barra de pesquisa por produtos
+     * 
+    */
+    public function search(Request $request)
+    {
+        $search = $request->get('search');
+        $products = Product::where('name', 'LIKE', '%'.$search.'%')->get();
+        if(count($products) > 0){
+            return view('resultadoBusca')->withDetails($products)->withQuery($search);
+        }else{
+            return view('resultadoBusca')->withMessage('Nenhum resultado encontrado');
+        }
     }
     
 }

@@ -71,9 +71,9 @@ class UserController extends Controller
      */
     public function editUserForm(User $user)
     {
-        return view('admin/usuario/editarUsuario', [
-            'user' => $user
-        ]);
+        // return view('admin/usuario/editarUsuario', [
+        //     'user' => $user
+        // ]);
     }
     
     /**
@@ -85,14 +85,14 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $user = User::find($id);
-        $user->name = $request->name;
-        $user->phone = $request->phone;
-        $user->usertype = $request->usertype;
-        $user->email = $request->email;
-        $user->save();
+        // $user = User::find($id);
+        // $user->name = $request->name;
+        // $user->phone = $request->phone;
+        // $user->usertype = $request->usertype;
+        // $user->email = $request->email;
+        // $user->save();
         
-        return view('admin/usuario/sucesso');
+        // return view('');
     }
 
     /**
