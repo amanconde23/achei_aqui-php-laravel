@@ -124,14 +124,3 @@ Route::put('produto/edit/{product}', 'ProductController@update')->name('product-
 // ação de apagar produto
 Route::delete('produto/destroy/{product}', 'ProductController@destroy')->name('product-destroy');
 // **END DELETE PRODUCT ** //
-
-
-// **UPLOAD IMAGES** //
-// formulario de upload de imagens
-Route::view('form', 'upload.form');
-
-// Rota ação form upload de imagens
-Route::post('upload', 'UploadController@upload')->name('upload');
-// ** END UPLOAD IMAGES** //
-// ** END ROTAS PRODUTOS** //
-
