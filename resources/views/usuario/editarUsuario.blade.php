@@ -6,6 +6,12 @@
     <title>Editar Usuário</title>
 </head>
 <body>
+    <form action="{{ route('search-user-results') }}" method="GET">
+        @csrf
+        <input type="text" name="searchUser" placeholder="Digite a sua busca">
+        <button type="submit">Buscar</button>
+    </form>
+
     <h1>Editar um Usuário</h1>
     <form action="{{ route('user-edit', ['user' => $user->id]) }}" method="POST">
         @csrf

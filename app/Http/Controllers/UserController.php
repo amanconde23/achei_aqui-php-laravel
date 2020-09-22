@@ -13,7 +13,7 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(User $user)
+    public function index()
     {
         $users = User::all();
         return view('admin/usuario/adminUsuarios', [
@@ -76,5 +76,20 @@ class UserController extends Controller
     {
         $user->delete();
         return redirect()->route('admin-users');
+    }
+
+    /**
+     * Barra de pesquisa por produtos
+     * 
+    */
+    public function search(Request $request)
+    {
+        $search = $request->get('searchUser');
+        $users = User::where('name', 'LIKE', '%'.$search.'%')->get();
+        if(count($users) > 0){
+            return view('usuario/resultadoBuscaUsuario')->withDetails($users)->withQuery($search);
+        }else{
+            return view('usuario/resultadoBuscaUsuario')->withMessage('Nenhum resultado encontrado');
+        }
     }
 }

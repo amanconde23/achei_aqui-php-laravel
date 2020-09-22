@@ -144,9 +144,9 @@ class ProductController extends Controller
         $search = $request->get('search');
         $products = Product::where('name', 'LIKE', '%'.$search.'%')->get();
         if(count($products) > 0){
-            return view('resultadoBusca')->withDetails($products)->withQuery($search);
+            return view('produto/resultadoBuscaProduto')->withDetails($products)->withQuery($search);
         }else{
-            return view('resultadoBusca')->withMessage('Nenhum resultado encontrado');
+            return view('produto/resultadoBuscaProduto')->withMessage('Nenhum resultado encontrado');
         }
     }
     

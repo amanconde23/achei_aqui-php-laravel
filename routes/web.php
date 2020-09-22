@@ -73,9 +73,20 @@ Route::get('/search', 'ProductController@search')->name('search-results');
 
 // mostrar resultados da busca
 Route::get('/resultado-busca', function () {
-    return view('resultadoBusca');
+    return view('produto/resultadoBuscaProduto');
 });
 // **END SEARCHBAR PRODUCT ** //
+
+
+// **SEARCHBAR USER ** //
+// ação de buscar
+Route::get('buscar-usuario', 'UserController@search')->name('search-user-results');
+
+// mostrar resultados da busca
+Route::get('resultado-busca-usuario', function () {
+    return view('usuario/resultadoBuscaUsuario');
+});
+// **END SEARCHBAR USER ** //
 
 
 // ** ROTAS PRODUTOS** //
