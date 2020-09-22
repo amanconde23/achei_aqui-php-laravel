@@ -22,27 +22,6 @@ class UserController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
      * Display the specified resource.
      *
      * @param  \App\User  $user
@@ -50,18 +29,9 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\User  $user
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(User $user)
-    {
-        //
+        return view('usuario/verUsuario', [
+            'user' => $user
+        ]);
     }
 
     /**
@@ -72,9 +42,9 @@ class UserController extends Controller
      */
     public function editUserForm(User $user)
     {
-        // return view('admin/usuario/editarUsuario', [
-        //     'user' => $user
-        // ]);
+        return view('usuario/editarUsuario', [
+            'user' => $user
+        ]);
     }
     
     /**
@@ -84,16 +54,16 @@ class UserController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function updateUser(Request $request, $id)
     {
-        // $user = User::find($id);
-        // $user->name = $request->name;
-        // $user->phone = $request->phone;
-        // $user->usertype = $request->usertype;
-        // $user->email = $request->email;
-        // $user->save();
+        $user = User::find($id);
+        $user->name = $request->name;
+        $user->phone = $request->phone;
+        $user->email = $request->email;
+        $user->password = $request->password;
+        $user->save();
         
-        // return view('');
+        return redirect()->route('home');
     }
 
     /**

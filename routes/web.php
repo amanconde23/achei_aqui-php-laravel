@@ -38,11 +38,26 @@ Route::group(['middleware' => ['auth','admin']], function(){
     // ação de apagar usuario
     Route::delete('usuario/destroy/{user}', 'UserController@destroy')->name('user-destroy');
     // **END DELETE USER ** //
-
-    Route::view('sucesso', 'admin/usuario/sucesso');
-
 });
 // **END ROTAS ACESSADAS PELO ADMIN  ** //
+
+
+// **ROTAS USUARIOS** //
+Route::prefix('usuario')->group(function(){
+    // **SHOW USER ** //
+    Route::get('{user}', 'UserController@show')->name('user');
+    // **END USER ** //
+
+    // **UPDATE PRODUCT** //
+    // formulario de editar produto
+    Route::get('editarform/{user}', 'UserController@editUserForm')->name('user-edit-form');
+
+    // ação de editar produto
+    Route::put('editar/{user}', 'UserController@updateUser')->name('user-edit');
+    // **END UPDATE PRODUCT ** //
+
+});
+// **END ROTAS USUARIOS** //
 
 
 // **ACCESS DENIED PAGE ** //
@@ -63,6 +78,7 @@ Route::get('/resultado-busca', function () {
 // **END SEARCHBAR PRODUCT ** //
 
 
+// ** ROTAS PRODUTOS** //
 // **SHOW PRODUCT** //
 // listar todos os produtos
 Route::get('listar-todos-produtos', 'ProductController@showAllProducts')->name('all-products');
@@ -106,6 +122,5 @@ Route::view('form', 'upload.form');
 // Rota ação form upload de imagens
 Route::post('upload', 'UploadController@upload')->name('upload');
 // ** END UPLOAD IMAGES** //
+// ** END ROTAS PRODUTOS** //
 
-
-Route::view('show-users', 'admin/usuario/adminUsuarios');
