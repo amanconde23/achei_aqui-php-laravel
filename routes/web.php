@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -69,10 +71,10 @@ Route::get('access-denied', function () {
 
 // **SEARCHBAR PRODUCT ** //
 // ação de buscar
-Route::get('/search', 'ProductController@search')->name('search-results');
+Route::get('buscar-produto', 'ProductController@search')->name('search-products-results');
 
 // mostrar resultados da busca
-Route::get('/resultado-busca', function () {
+Route::get('resultado-busca-produto', function () {
     return view('produto/resultadoBuscaProduto');
 });
 // **END SEARCHBAR PRODUCT ** //

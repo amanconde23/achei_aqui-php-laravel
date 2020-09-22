@@ -6,7 +6,7 @@
     <title>Listar Produtos Cadastrados</title>
 </head>
 <body>
-    <form action="{{ route('search-results') }}" method="GET">
+    <form action="{{ route('search-products-results') }}" method="GET">
         @csrf
         <input type="text" name="search" placeholder="Digite a sua busca">
         <button type="submit">Buscar</button>
