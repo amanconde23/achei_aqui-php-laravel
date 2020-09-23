@@ -7,11 +7,11 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'AcheiAqui') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="{{ asset('site/jquery.js') }}"></script>
+    <script src="{{ asset('site/jquery.js') }}" defer></script>
+    <script src="{{ asset('site/bootstrap.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -22,13 +22,14 @@
 
     <!-- Styles -->
     <link href="{{ asset('site/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('site/main.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    {{ config('app.name', 'AcheiAqui') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -79,6 +80,10 @@
         <main class="py-4">
             @yield('content')
         </main>
+
+        <footer>
+            <p>Créditos da imagem: <a href="http://www.freepik.com">Designed by pikisuperstar / Freepik</a></p>
+        </footer>
     </div>
 </body>
 </html>

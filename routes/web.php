@@ -38,11 +38,10 @@ Route::group(['middleware' => ['auth','admin']], function(){
 
     // **DELETE USER** //
     // ação de apagar usuario
-    Route::delete('usuario/destroy/{user}', 'UserController@destroy')->name('user-destroy');
+    Route::delete('admin/usuario/destroy/{user}', 'UserController@destroyUserAdmin')->name('user-destroy-admin');
     // **END DELETE USER ** //
 });
 // **END ROTAS ACESSADAS PELO ADMIN  ** //
-
 
 // **ROTAS USUARIOS** //
 Route::prefix('usuario')->group(function(){
@@ -58,6 +57,10 @@ Route::prefix('usuario')->group(function(){
     Route::put('editar/{user}', 'UserController@updateUser')->name('user-edit');
     // **END UPDATE PRODUCT ** //
 
+    // **DELETE USER** //
+    // ação de apagar usuario
+    Route::delete('destroy/{user}', 'UserController@destroyUser')->name('user-destroy');
+    // **END DELETE USER ** //
 });
 // **END ROTAS USUARIOS** //
 
@@ -94,13 +97,13 @@ Route::get('resultado-busca-usuario', function () {
 // ** ROTAS PRODUTOS** //
 // **SHOW PRODUCT** //
 // listar todos os produtos
-Route::get('listar-todos-produtos', 'ProductController@showAllProducts')->name('all-products');
+Route::get('produtos-cadastrados', 'ProductController@showAllProducts')->name('all-products');
 
 // listar todos os produtos do usuario
-Route::get('listar-produtos', 'ProductController@index')->name('products');
+Route::get('meus-produtos', 'ProductController@index')->name('products');
 
 // mostrar detalhes de um produto
-Route::get('product/{product}', 'ProductController@showOneProduct')->name('product-show-details');
+Route::get('ver-produto/{product}', 'ProductController@showOneProduct')->name('product-show-details');
 // **END SHOW PRODUCT ** //
 
 
@@ -126,3 +129,17 @@ Route::put('produto/edit/{product}', 'ProductController@update')->name('product-
 // ação de apagar produto
 Route::delete('produto/destroy/{product}', 'ProductController@destroy')->name('product-destroy');
 // **END DELETE PRODUCT ** //
+
+
+// **DASHBOARD USUARIO COMUM** //
+Route::get('painel-usuario', function () {
+    return view('usuario/painelUsuario');
+});
+// **END DASHBOARD USUARIO COMUM** //
+
+
+// **DASHBOARD USUARIO ADMIN** //
+Route::get('painel-admin', function () {
+    return view('admin/painelAdmin');
+});
+// **END DASHBOARD USUARIO ADMIN** //

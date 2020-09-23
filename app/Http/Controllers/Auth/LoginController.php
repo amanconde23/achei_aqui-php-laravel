@@ -34,7 +34,7 @@ class LoginController extends Controller
         if(Auth::user()->usertype == 'admin'){
             return 'admin-usuarios';
         }else{
-            return 'listar-produtos';
+            return 'painel-usuario';
         }
     }
 

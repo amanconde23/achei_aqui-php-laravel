@@ -1,0 +1,27 @@
+.bg-img-dashboard{
+    width: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+}
+
+.sidebar-dashboard{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-sidebar-dashboard{
+    border: 1px solid var(--primary);
+    width: 240px;
+    padding: 16px;
+    margin: 10px 0;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.titulo-dashboard{
+    text-align: center;
+}

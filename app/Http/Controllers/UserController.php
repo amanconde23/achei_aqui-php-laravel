@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Gate;
 
 class UserController extends Controller
 {
@@ -72,7 +71,13 @@ class UserController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroyUser(User $user)
+    {
+        $user->delete();
+        return redirect()->route('home');
+    }
+
+    public function destroyUserAdmin(User $user)
     {
         $user->delete();
         return redirect()->route('admin-users');

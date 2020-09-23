@@ -12,5 +12,15 @@
     <p>{{ $user->phone }}</p>
     <p>{{ $user->password }}</p>
 
+    <td>
+        <a href="{{ route('user-edit-form', ['user' => Auth::user()->id]) }}">Editar Usuário</a>
+        <form action="{{ route('user-destroy', ['user' => Auth::user()->id]) }}" method="post">
+            @csrf
+            @method('delete')
+            <input type="hidden" name="user-destroy'" value="{{ $user->id }}">
+            <input type="submit" value="Excluir Perfil">
+        </form>
+    </td>
+
 </body>
 </html>
