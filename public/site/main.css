@@ -153,6 +153,10 @@ html, body{
     margin-left: 10px;
 }
 
+.btn-esqueceu-senha:hover{
+    color: #0056b3;
+}
+
 .form-group-without-margin{
     margin: 0;
 }

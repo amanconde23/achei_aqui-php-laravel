@@ -134,7 +134,7 @@ Route::delete('produto/destroy/{product}', 'ProductController@destroy')->name('p
 // **DASHBOARD USUARIO COMUM** //
 Route::get('painel-usuario', function () {
     return view('usuario/painelUsuario');
-});
+})->name('user-pannel');
 // **END DASHBOARD USUARIO COMUM** //
 
 
