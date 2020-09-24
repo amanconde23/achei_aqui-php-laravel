@@ -1,24 +1,30 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Criar Produto</title>
-</head>
-<body>
-    <h1>Criar um Produto</h1>
-    <form action="{{ route('product-store') }}" method="POST" enctype='multipart/form-data'>
-        @csrf
-        <label for="">Nome do Produto:</label>
-        <input type="text" name="name">
+@extends('layouts.app')
 
-        <label for="">Categoria do Produto:</label>
-        <input type="text" name="category">
+@section('content')
+<div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="titulo-pagina">Criar um Produto</h1>
+                <div class="box-form-cadastrar-produto">
+                    <form action="{{ route('product-store') }}" method="POST" enctype='multipart/form-data'>
+                        @csrf
+                        <div class="form-group">
+                            <label for="name">Nome do Produto:</label>
+                            <input type="text" name="name">
+                        </div>
+                        <div class="form-group">
+                            <label for="category">Categoria do Produto:</label>
+                            <input type="text" name="category">
+                        </div>
+                        <div class="form-group">
+                            <label for="image">Imagem do Produto:</label>
+                            <input type="file" name="image">
+                        </div>
+                        <button type="submit" class="btn btn-success">Cadastrar Produto</button>
+                    </form> 
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection
 
-        <label for="">Imagem do Produto:</label>
-        <input type="file" name="image">
-
-        <input type="submit" value="Cadastrar Produto">
-    </form> 
-</body>
-</html>

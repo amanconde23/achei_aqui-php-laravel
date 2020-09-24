@@ -12,7 +12,7 @@
                 </nav>
             </div>
 
-            <div class="col-md-8">
+            <div class="col-md-8 col-sm-8">
                 <h1 class="titulo-dashboard">Portal de Economia Colaborativa</h1>
                 <img class="bg-img-dashboard" src="{{ asset('images/bg_image.jpg') }}" alt="">
             </div>

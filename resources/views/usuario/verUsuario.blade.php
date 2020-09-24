@@ -1,26 +1,26 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ver Usuário</title>
-</head>
-<body>
+@extends('layouts.app')
 
-    <h1>{{ $user->name }}</h1>
-    <p>{{ $user->email }}</p>
-    <p>{{ $user->phone }}</p>
-    <p>{{ $user->password }}</p>
+@section('content')
+    <div class="container conteudo-menor">
+        <div class="row">
+            <div class="col-md-12 meu-perfil">
+                <h1 class="titulo-meu-perfil">Meu Perfil</h1>
+                <div class="box-meu-perfil">
+                    <p><strong>Nome: </strong>{{ $user->name }}</p>
+                    <p><strong>Email: </strong>{{ $user->email }}</p>
+                    <p class="item-box-meu-perfil"><strong>Telefone: </strong>{{ $user->phone }}</p>
+                </div>
 
-    <td>
-        <a href="{{ route('user-edit-form', ['user' => Auth::user()->id]) }}">Editar Usuário</a>
-        <form action="{{ route('user-destroy', ['user' => Auth::user()->id]) }}" method="post">
-            @csrf
-            @method('delete')
-            <input type="hidden" name="user-destroy'" value="{{ $user->id }}">
-            <input type="submit" value="Excluir Perfil">
-        </form>
-    </td>
-
-</body>
-</html>
+                <div class="btn-crud">
+                    <a class="btn btn-warning" href="{{ route('user-edit-form', ['user' => Auth::user()->id]) }}">Editar Usuário</a>
+                    <form action="{{ route('user-destroy', ['user' => Auth::user()->id]) }}" method="post">
+                        @csrf
+                        @method('delete')
+                        <input type="hidden" name="user-destroy'" value="{{ $user->id }}">
+                        <button type="submit" class="btn btn-danger">Excluir Perfil</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection

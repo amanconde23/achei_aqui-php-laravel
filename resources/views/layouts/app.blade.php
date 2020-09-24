@@ -15,7 +15,7 @@
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@300;400&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
 
     <!-- Font awesome -->
     <script src="https://kit.fontawesome.com/a0b66fbad1.js" crossorigin="anonymous"></script>
@@ -26,12 +26,12 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav id="navbar-header" class="navbar navbar-expand-md shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'AcheiAqui') }}
                 </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                <button class="navbar-toggler line" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
@@ -46,16 +46,16 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link nav-link-header" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link nav-link-header" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif
                         @else
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" class="nav-link nav-link-header dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
 
@@ -77,12 +77,13 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="conteudo">
             @yield('content')
         </main>
 
         <footer>
-            <p>Créditos da imagem: <a href="http://www.freepik.com">Designed by pikisuperstar / Freepik</a></p>
+            <p>Desenvolvido por Amanda Martinez</p>
+            <p class="copyright-img">Créditos da imagem: <a class="copyright-img-link" href="http://www.freepik.com" target="_blank">Designed by pikisuperstar / Freepik</a></p>
         </footer>
     </div>
 </body>
