@@ -1,43 +1,43 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listar Produtos Cadastrados</title>
-</head>
-<body>
-    <form action="{{ route('search-products-results') }}" method="GET">
-        @csrf
-        <input type="text" name="search" placeholder="Digite a sua busca">
-        <button type="submit">Buscar</button>
-    </form>
+@extends('layouts.app')
 
-    <h1>Listar Todos os Produtos Cadastrados</h1>
+@section('content')
+<div class="container">
+        <div class="row">
+            <div class="col-md-12 ">
+                <form class="searchbar-products" action="{{ route('search-products-results') }}" method="GET">
+                    <div class="form-group">
+                        @csrf
+                        <input type="text" name="search" placeholder="Digite a sua busca">
+                        <button type="submit" class="btn btn-success btn-searchbar">Buscar</button>
+                    </div>
+                </form>
 
-    <table>
-        <tr>
-            <td>Imagem</td>
-            <td>ID</td>
-            <td>Nome:</td>
-            <td>Categoria:</td>
-            <td>Proprietário:</td>
-            <td>Telefone:</td>
-        </tr>
+                <h1 class="titulo-pagina">Produtos Cadastrados no Portal</h1>
 
-        @foreach ($products as $product)
-        <tr>
-            <td><img src="{{ env('APP_URL') }}/storage/{{ $product->image }}" alt=""></td>
-            <td>{{ $product->id }}</td>
-            <td>{{ $product->name }}</td>
-            <td>{{ $product->category }}</td>
-            <td>{{ $product->user->name }}</td>
-            <td>{{ $product->user->phone }}</td>
-            <td>
-                <a href="{{ route('product-show-details', ['product' => $product->id]) }}">Ver Produto</a>
-            </td>
-        </tr>
-        @endforeach
-    </table>
-
-</body>
-</html>
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <td>Imagem</td>
+                            <td>Nome:</td>
+                            <td>Categoria:</td>
+                            <td>Ações:</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($products as $product)
+                        <tr>
+                            <td class="align-middle"><img class="img-produto" src="{{ env('APP_URL') }}/storage/{{ $product->image }}" alt=""></td>
+                            <td class="align-middle">{{ $product->name }}</td>
+                            <td class="align-middle">{{ $product->category }}</td>
+                            <td class="align-middle btn-ver-produto">
+                                <a class="btn btn-primary" href="{{ route('product-show-details', ['product' => $product->id]) }}">Ver</a>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+                <a class="btn btn-info" href="{{ url()->previous() }}">Voltar</a>
+            </div>
+        </div>
+    </div>
+@endsection

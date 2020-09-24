@@ -1,5 +1,7 @@
 $theme-colors: (
-  "purple": #8a27a3
+  "warning": #f1ff49,
+  "danger": #f36161,
+  "success": #AAF586
 );
 
 @import "~bootstrap/scss/bootstrap";

@@ -1,17 +1,16 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detalhes do Produto</title>
-</head>
-<body>
+@extends('layouts.app')
 
-    <h1>{{ $product->name }}</h1>
-    <p>{{ $product->category }}</p>
-    <p>{{ $product->user->name }}</p>
-    <p>{{ $product->user->phone }}</p>
-    <img src="{{ env('APP_URL') }}/storage/{{ $product->image }}" alt="">
-
-</body>
-</html>
+@section('content')
+    <div class="container conteudo-menor">
+        <div class="row">
+            <div class="col-md-12 box-ver-produto">
+                <h1>{{ $product->name }}</h1>
+                <p><strong>Categoria: </strong>{{ $product->category }}</p>
+                <p><strong>Proprietário: </strong>{{ $product->user->name }}</p>
+                <p><strong>Telefone: </strong>{{ $product->user->phone }}</p>
+                <p class="p-without-margin"><img class="img-ver-produto" src="{{ env('APP_URL') }}/storage/{{ $product->image }}" alt="">
+            </div>
+            <a class="btn btn-info" href="{{ url()->previous() }}">Voltar</a>
+        </div>
+    </div>
+@endsection

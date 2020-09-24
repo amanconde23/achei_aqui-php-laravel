@@ -17,9 +17,10 @@
                         @csrf
                         @method('delete')
                         <input type="hidden" name="user-destroy'" value="{{ $user->id }}">
-                        <button type="submit" class="btn btn-danger">Excluir Perfil</button>
+                        <button type="submit" class="btn btn-danger">Excluir Conta</button>
                     </form>
                 </div>
+                <a class="btn btn-info btn-voltar" href="{{ url()->previous() }}">Voltar</a>
             </div>
         </div>
     </div>

@@ -81,7 +81,6 @@ html, body{
     padding: 20px;
     margin-top: 20px;
     margin-bottom: 30px;
-    width: 40%;
     text-align: center;
 }
 
@@ -95,6 +94,17 @@ html, body{
 
 .btn-crud{
     display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.btn-voltar{
+    margin: 20px 0;
+}
+
+.btn-ver-produto{
+    text-align: center;
 }
 
 .img-produto{
@@ -105,14 +115,68 @@ html, body{
     display: flex;
 }
 
+.btn{
+    color: #212529;
+}
+
+.btn:hover{
+    color: #fff;
+}
+
+.table{
+    width: 100%;
+    margin: 20px 0;
+    color: #212529;
+}
+
 .titulo-pagina{
     color: #212529;
+    text-align: center;
+    margin: 0;
 }
 
 .box-form-cadastrar-produto{
     border: 1px solid #212529;
     padding: 20px;
     width: 60%;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 30px;
+    margin-top: 20px;
+}
+
+.btn-criar-produto{
+    margin-top: 20px;
+}
+
+.btn-searchbar{
+    margin-left: 10px;
+}
+
+.form-group-without-margin{
+    margin: 0;
+}
+
+.box-ver-produto{
+    border: 1px solid #212529;
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.img-ver-produto{
+    width: 200px;
+    margin: auto;
+    display: block;
+}
+
+.p-without-margin{
+    margin: 0;
+}
+
+.searchbar-products{
+    text-align: end;
 }
 
 footer{

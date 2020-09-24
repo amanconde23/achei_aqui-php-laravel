@@ -4,7 +4,7 @@
 <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1 class="titulo-pagina">Criar um Produto</h1>
+                <h1 class="titulo-pagina">Criar Produto</h1>
                 <div class="box-form-cadastrar-produto">
                     <form action="{{ route('product-store') }}" method="POST" enctype='multipart/form-data'>
                         @csrf
@@ -16,13 +16,16 @@
                             <label for="category">Categoria do Produto:</label>
                             <input type="text" name="category">
                         </div>
-                        <div class="form-group">
+                        <div class="form-group form-group-without-margin">
                             <label for="image">Imagem do Produto:</label>
                             <input type="file" name="image">
                         </div>
-                        <button type="submit" class="btn btn-success">Cadastrar Produto</button>
+                        <div class="btn-criar-produto">
+                            <button type="submit" class="btn btn-success">Cadastrar Produto</button>
+                        </div>
                     </form> 
                 </div>
+                <a class="btn btn-info" href="{{ url()->previous() }}">Voltar</a>
             </div>
         </div>
     </div>
