@@ -30,9 +30,9 @@
                     </table>
                 @else
                     <h1>{{ $message }}</h1>
-                @endif
+                    <a class="btn btn-info" href="{{ url()->previous() }}">Voltar</a>
 
-                <a class="btn btn-info" href="{{ url()->previous() }}">Voltar</a>
+                @endif
             </div>
         </div>
     </div>

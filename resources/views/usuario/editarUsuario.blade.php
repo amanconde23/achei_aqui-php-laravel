@@ -1,34 +1,45 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editar Usuário</title>
-</head>
-<body>
-    <form action="{{ route('search-user-results') }}" method="GET">
-        @csrf
-        <input type="text" name="searchUser" placeholder="Digite a sua busca">
-        <button type="submit">Buscar</button>
-    </form>
+@extends('layouts.app')
 
-    <h1>Editar um Usuário</h1>
-    <form action="{{ route('user-edit', ['user' => $user->id]) }}" method="POST">
-        @csrf
-        @method('PUT')
-        <label for="">Nome do Usuário:</label>
-        <input type="text" name="name" value="{{ $user->name }}">
+@section('content')
+    <div class="container conteudo-menor">
+        <div class="row">
+            <div class="col-md-12">
+                <form class="searchbar-products" action="{{ route('search-user-results') }}" method="GET">
+                    <div class="form-group">
+                        @csrf
+                        <input type="text" name="searchUser" placeholder="Digite a sua busca">
+                        <button type="submit" class="btn btn-success btn-searchbar">Buscar</button>
+                    </div>
+                </form>
 
-        <label for="">Email do Usuário:</label>
-        <input type="text" name="email" value="{{ $user->email }}">
-
-        <label for="">Telefone do Usuário:</label>
-        <input type="text" name="phone" value="{{ $user->phone }}">
-
-        <label for="">Senha do Usuário:</label>
-        <input type="text" name="password" value="{{ $user->password }}">
-
-        <input type="submit" value="Editar Usuário">
-    </form>
-</body>
-</html>
+                <h1 class="titulo-pagina">Editar um Usuário</h1>
+                <div class="box-form-cadastrar-produto">
+                    <form action="{{ route('user-edit', ['user' => $user->id]) }}" method="POST">
+                        @csrf
+                        @method('PUT')
+                        <div class="form-group">
+                            <label for="">Nome do Usuário:</label>
+                            <input type="text" name="name" value="{{ $user->name }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Email do Usuário:</label>
+                            <input type="text" name="email" value="{{ $user->email }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Telefone do Usuário:</label>
+                            <input type="text" name="phone" value="{{ $user->phone }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Senha do Usuário:</label>
+                            <input type="text" name="password" value="{{ $user->password }}">
+                        </div>
+                        <div class="btn-criar-produto">
+                            <button type="submit" class="btn btn-warning">Editar Usuário</button>
+                        </div>
+                    </form>
+                </div>
+                <a class="btn btn-info btn-voltar" href="{{ url()->previous() }}">Voltar</a>
+            </div>
+        </div>
+    </div>
+@endsection
