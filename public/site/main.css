@@ -5,6 +5,7 @@ html, body{
     flex-direction:column; 
     font-family: 'Poppins', sans-serif;
     color: #212529;
+    height: 100%;
 }
 
 #navbar-header{
@@ -13,7 +14,7 @@ html, body{
 
 .navbar-brand{
     font-family: 'Londrina Solid', cursive;
-    font-size: 30px;
+    font-size: 36px;
     color: #fff;
 }
 
@@ -22,6 +23,7 @@ html, body{
 }
 
 .nav-link-header{
+    font-size: 18px;
     color: #fff;
 }
 
@@ -30,10 +32,11 @@ html, body{
 }
 
 .conteudo{
-    height: 100vh;
+    position: relative;
+    height: 100%;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
 }
 
 .sidebar-dashboard{
@@ -88,8 +91,17 @@ html, body{
     margin: 0;
 }
 
+.img-produto{
+    width: 100px;
+}
+
 .btn{
     margin-right: 10px;
+    color: #212529;
+}
+
+.btn:hover{
+    color: #fff;
 }
 
 .btn-crud{
@@ -107,20 +119,20 @@ html, body{
     text-align: center;
 }
 
-.img-produto{
-    width: 100px;
-}
-
 .btn-meus-produtos{
     display: flex;
 }
 
-.btn{
-    color: #212529;
+.btn-criar-produto{
+    margin-top: 20px;
 }
 
-.btn:hover{
-    color: #fff;
+.btn-searchbar{
+    margin-left: 10px;
+}
+
+.btn-esqueceu-senha:hover{
+    color: #0056b3;
 }
 
 .table{
@@ -143,18 +155,6 @@ html, body{
     margin: auto;
     margin-bottom: 30px;
     margin-top: 20px;
-}
-
-.btn-criar-produto{
-    margin-top: 20px;
-}
-
-.btn-searchbar{
-    margin-left: 10px;
-}
-
-.btn-esqueceu-senha:hover{
-    color: #0056b3;
 }
 
 .form-group-without-margin{
@@ -189,7 +189,6 @@ footer{
     font-size: 20px;
     color: #fff;
     padding: 30px 0;
-    bottom: 0; 
 }
 
 .copyright-img{
