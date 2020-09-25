@@ -32,6 +32,12 @@ Auth::routes();
 
 // **ROTAS ACESSADAS PELO ADMIN ** //
 Route::group(['middleware' => ['auth','admin']], function(){
+    // **DASHBOARD USUARIO ADMIN** //
+    Route::get('painel-admin', function () {
+        return view('admin/painelAdmin');
+    });
+    // **END DASHBOARD USUARIO ADMIN** //
+
     // **SHOW ADMIN USERS ** //
     Route::get('admin-usuarios', 'UserController@index')->name('admin-users');
     // **END ADMIN PRODUCTS ** //
@@ -137,9 +143,3 @@ Route::get('painel-usuario', function () {
 })->name('user-pannel');
 // **END DASHBOARD USUARIO COMUM** //
 
-
-// **DASHBOARD USUARIO ADMIN** //
-Route::get('painel-admin', function () {
-    return view('admin/painelAdmin');
-});
-// **END DASHBOARD USUARIO ADMIN** //

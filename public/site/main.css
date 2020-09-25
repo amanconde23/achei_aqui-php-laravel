@@ -39,6 +39,10 @@ html, body{
     align-items: center;
 }
 
+.conteudo-menor{
+    padding: 80px;
+}
+
 .sidebar-dashboard{
     display: flex;
     align-items: center;
