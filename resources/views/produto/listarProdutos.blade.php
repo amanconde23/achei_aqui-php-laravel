@@ -11,6 +11,7 @@
                                 <td>Imagem</td>
                                 <td>Nome:</td>
                                 <td>Categoria:</td>
+                                <td>Status:</td>
                                 <td>Ações:</td>
                             </tr>
                         </thead>
@@ -20,6 +21,7 @@
                                 <td class="align-middle"><img class="img-produto" src="{{ env('APP_URL') }}/storage/{{ $product->image }}" alt=""></td>
                                 <td class="align-middle">{{ $product->name }}</td>
                                 <td class="align-middle">{{ $product->category }}</td>
+                                <td class="align-middle">{{ $product->statusProduto }}</td>
                                 <td class="align-middle">
                                     <div class="btn-crud">
                                         <a class="btn btn-primary" href="{{ route('product-show-details', ['product' => $product->id]) }}">Ver</a>

@@ -71,6 +71,7 @@ class ProductController extends Controller
         $product->user_id = $userId;
         $product->name = $request->name;
         $product->category = $request->category;
+        $product->statusProduto = $request->statusProduto;
 
         if($request->hasfile('image')){
             $file = $request->file('image');            
@@ -113,6 +114,7 @@ class ProductController extends Controller
         $product = Product::find($id);
         $product->name = $request->name;
         $product->category = $request->category;
+        $product->statusProduto = $request->statusProduto;
         if($request->hasFile('image')){
             $file = $request->file('image');
             $product->image = $file->store('produtos');

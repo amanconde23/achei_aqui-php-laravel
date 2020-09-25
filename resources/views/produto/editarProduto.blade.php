@@ -21,6 +21,13 @@
                             <label for="">Imagem do Produto:</label>
                             <input type="file" name="image">
                         </div>
+                        <div class="form-group">
+                            <label for="statusProduto">Status do Produto:</label>
+                            <select class="form-control" id="statusProduto" name="statusProduto">
+                                <option value="Disponivel">Disponível</option>
+                                <option value="Indisponivel">Indisponível</option>
+                            </select>
+                        </div>
                         <div class="btn-criar-produto">
                             <button type="submit" class="btn btn-warning">Editar Produto</button>
                         </div>

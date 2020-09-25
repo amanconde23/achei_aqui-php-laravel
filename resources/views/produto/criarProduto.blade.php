@@ -15,10 +15,17 @@
                         <div class="form-group">
                             <label for="category">Categoria do Produto:</label>
                             <input type="text" name="category">
-                        </div>
+                        </div>                       
                         <div class="form-group form-group-without-margin">
                             <label for="image">Imagem do Produto:</label>
                             <input type="file" name="image">
+                        </div>
+                        <div class="form-group">
+                            <label for="statusProduto">Status do Produto:</label>
+                            <select class="form-control" id="statusProduto" name="statusProduto">
+                                <option value="Disponivel">Disponível</option>
+                                <option value="Indisponivel">Indisponível</option>
+                            </select>
                         </div>
                         <div class="btn-criar-produto">
                             <button type="submit" class="btn btn-success">Cadastrar Produto</button>
