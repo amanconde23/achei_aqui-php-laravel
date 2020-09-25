@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container conteudo-menor">
+    <div class="container conteudo">
         <div class="row">
             <div class="col-md-12">
                 <form class="searchbar-products" action="{{ route('search-user-results') }}" method="GET">
