@@ -22,7 +22,7 @@
                         </div>
                         <div class="form-group">
                             <label for="statusProduto">Status do Produto:</label>
-                            <select class="form-control" id="statusProduto" name="statusProduto">
+                            <select class="form-control status" id="statusProduto" name="statusProduto">
                                 <option value="Disponivel">Disponível</option>
                                 <option value="Indisponivel">Indisponível</option>
                             </select>

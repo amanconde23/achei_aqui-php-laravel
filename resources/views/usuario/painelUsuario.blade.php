@@ -8,7 +8,7 @@
                     <a class="nav-link btn-sidebar-dashboard" href="{{ route ('user', ['user' => Auth::user()->id]) }}"><i class="fas fa-user"></i> Meus Perfil</a>
                     <a class="nav-link btn-sidebar-dashboard" href="{{ route('products') }}"><i class="fas fa-box-open"></i> Meus Produtos</a>
                     <a class="nav-link btn-sidebar-dashboard" href="{{ route('product-new') }}"><i class="fas fa-plus-circle"></i> Cadastrar Produto</a>
-                    <a class="nav-link btn-sidebar-dashboard" href="#"><i class="fas fa-star"></i> Avaliar Usuário</a>
+                    <a class="nav-link btn-sidebar-dashboard" href="{{ route('rate-user') }}"><i class="fas fa-star"></i> Avaliar Usuário</a>
                 </nav>
             </div>
 

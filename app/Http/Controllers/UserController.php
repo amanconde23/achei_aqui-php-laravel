@@ -20,6 +20,14 @@ class UserController extends Controller
         ]);
     }
 
+    public function showAllUsers()
+    {
+        $users = User::all();
+        return view('usuario/usuarios', [
+            'users' => $users
+        ]);
+    }
+
     /**
      * Display the specified resource.
      *

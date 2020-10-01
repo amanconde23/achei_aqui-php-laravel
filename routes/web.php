@@ -143,3 +143,7 @@ Route::get('painel-usuario', function () {
 })->name('user-pannel');
 // **END DASHBOARD USUARIO COMUM** //
 
+// **AVALIAR USUÁRIO** //
+Route::get('rate-user', 'UserRatingController@create')->name('rate-user');
+Route::post('rate-user/store', 'UserRatingController@store')->name('rate-user-store');
+// **END AVALIAR USUÁRIO** //

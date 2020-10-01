@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-12 meu-perfil">
                 <h1 class="titulo-meu-perfil">Meu Perfil</h1>
-                <div class="box-meu-perfil">
+                <div class="box-form-cadastrar-produto">
                     <p><strong>Nome: </strong>{{ $user->name }}</p>
                     <p><strong>Email: </strong>{{ $user->email }}</p>
                     <p class="item-box-meu-perfil"><strong>Telefone: </strong>{{ $user->phone }}</p>
