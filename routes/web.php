@@ -89,6 +89,11 @@ Route::get('resultado-busca-produto', function () {
 // **END SEARCHBAR PRODUCT ** //
 
 
+// **PAGINA BUSCAR PRODUTO** //
+Route::get('search-product', 'ProductController@searchPage')->name('search-products-page');
+// **END PAGINA BUSCAR PRODUTO** //
+
+
 // **SEARCHBAR USER ** //
 // ação de buscar
 Route::get('buscar-usuario', 'UserController@search')->name('search-user-results');

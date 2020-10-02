@@ -29,9 +29,10 @@
                         </tbody>
                     </table>
                 @else
-                    <h1>{{ $message }}</h1>
+                    <h1 class="msg-busca-empty">{{ $message }}</h1>
+                    
                     <a class="btn btn-info" href="{{ url()->previous() }}">Voltar</a>
-
+                    <div class="space"></div>
                 @endif
             </div>
         </div>

@@ -151,5 +151,10 @@ class ProductController extends Controller
             return view('produto/resultadoBuscaProduto')->withMessage('Nenhum resultado encontrado');
         }
     }
+
+    public function searchPage()
+    {
+        return view('produto/buscarProduto');
+    }
     
 }

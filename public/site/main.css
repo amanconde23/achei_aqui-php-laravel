@@ -49,6 +49,10 @@ html, body{
     justify-content: center;
 }
 
+.content-user-pannel{
+    margin: auto;
+}
+
 .btn-sidebar-dashboard{
     border: 1px solid var(--primary);
     width: 240px;
@@ -195,6 +199,26 @@ html, body{
     text-align: end;
 }
 
+#searchbar-products-page{
+    display: flex;
+    justify-content: center;
+    width: 400px;
+    margin: 60px auto;
+}
+
+.search-page{
+    width: 360px;
+}
+
+.msg-busca-empty{
+    margin-top: 80px;
+    margin-bottom: 50px;
+}
+
+.space{
+    margin-bottom: 100px;
+}
+
 .form-avaliar-usuario{
     padding: 50px 0;
 }
@@ -214,6 +238,23 @@ footer{
 
 .copyright-img-link{
     color: #fff;
+}
+
+#erros {
+    display: none;
+}
+
+#erros p{
+    margin: 0;
+}
+
+.alert-danger{
+    margin-bottom: 0;
+    margin-top: 20px;
+}
+
+.error{
+    border: 2px solid #fcd3d3 !important;
 }
 
 @media(max-width:770px){

@@ -4,14 +4,6 @@
     <div class="container conteudo">
         <div class="row">
             <div class="col-md-12">
-                <form class="searchbar-products" action="{{ route('search-user-results') }}" method="GET">
-                    <div class="form-group">
-                        @csrf
-                        <input type="text" name="searchUser" placeholder="Digite a sua busca">
-                        <button type="submit" class="btn btn-success btn-searchbar">Buscar</button>
-                    </div>
-                </form>
-
                 <h1 class="titulo-pagina">Editar um Usuário</h1>
                 <div class="box-form-cadastrar-produto">
                     <form action="{{ route('user-edit', ['user' => $user->id]) }}" method="POST">
@@ -27,7 +19,7 @@
                         </div>
                         <div class="form-group">
                             <label for="">Telefone do Usuário:</label>
-                            <input type="text" name="phone" value="{{ $user->phone }}">
+                            <input type="text" id="phone" name="phone" value="{{ $user->phone }}">
                         </div>
                         <div class="form-group">
                             <label for="">Nova Senha do Usuário:</label>

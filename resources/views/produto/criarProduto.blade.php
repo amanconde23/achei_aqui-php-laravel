@@ -6,7 +6,7 @@
             <div class="col-md-12">
                 <h1 class="titulo-pagina">Criar Produto</h1>
                 <div class="box-form-cadastrar-produto">
-                    <form action="{{ route('product-store') }}" method="POST" enctype='multipart/form-data'>
+                    <form id="form-cadastrar-produto" action="{{ route('product-store') }}" method="POST" enctype='multipart/form-data'>
                         @csrf
                         <div class="form-group">
                             <label for="name">Nome do Produto:</label>
@@ -29,6 +29,9 @@
                         </div>
                         <div class="btn-criar-produto">
                             <button type="submit" class="btn btn-success">Cadastrar Produto</button>
+                        </div>
+                        <div class="form-group">
+                            <div id="erros" class="alert alert-danger"></div>
                         </div>
                     </form> 
                 </div>
