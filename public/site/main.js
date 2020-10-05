@@ -18,3 +18,46 @@ $(document).ready(function(){
         },
     });
 });
+
+$(document).ready(function(){
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    $('.delete-product-btn').click(function(e){
+        e.preventDefault();
+        var delete_val = $(this).closest('tr').find('.delete_val').val();
+
+        Swal.fire({
+            title: 'Tem certeza que deseja excluir o produto?',
+            text: 'Essa ação não pode ser desfeita',
+            icon: 'error',
+            showCancelButton: true,
+            confirmButtonText: 'Excluir',
+            cancelButtonText: 'Cancelar',
+        })
+        .then((result) => {
+            if(result.isConfirmed){
+                var data = {
+                    "_token": $('input[name="csrf-token"]').val(),
+                    "id": delete_val,
+                };
+                $.ajax({
+                    type: 'DELETE',
+                    url: 'product-destroy/'+delete_val,
+                    data: data,
+                    success: function(response){
+                        Swal.fire(response.status, {
+                            icon: 'success',
+                        })
+                        .then((result) => {
+                            location.reload();
+                        });
+                    }
+                });           
+            }
+        });
+    });
+});

@@ -18,6 +18,7 @@
                         <tbody>
                             @foreach ($products as $product)
                             <tr>
+                                <input type="hidden" class="delete_val" value="{{$product->id}}">
                                 <td class="align-middle"><img class="img-produto" src="{{ env('APP_URL') }}/storage/{{ $product->image }}" alt=""></td>
                                 <td class="align-middle">{{ $product->name }}</td>
                                 <td class="align-middle">{{ $product->category }}</td>
@@ -26,13 +27,8 @@
                                     <div class="btn-crud">
                                         <a class="btn btn-primary" href="{{ route('product-show-details', ['product' => $product->id]) }}">Ver</a>
                                         <a class="btn btn-warning" href="{{ route('product-edit-form', ['product' => $product->id]) }}">Editar</a>
-                                        <form action="{{ route('product-destroy', ['product' => $product->id]) }}" method="post">
-                                            @csrf
-                                            <!-- form spoofing (falsifica a verbalização) -->
-                                            @method('delete')
-                                            <input type="hidden" name="product-destroy" value="{{ $product->id }}">
-                                            <button type="submit" class="btn btn-danger">Excluir</button>
-                                        </form>
+                                        <button type="submit" class="btn btn-danger delete-product-btn">Excluir</button>
+
                                     </div>
                                 </td>
                             </tr>

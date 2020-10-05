@@ -15,6 +15,8 @@
     <script src="{{ asset('site/main.js') }}" defer></script>
     <script src="{{ asset('site/jquery.mask.min.js') }}" defer></script>
     <script src="{{ asset('site/jquery.validate.min.js') }}" defer></script>
+    <script src="{{ asset('site/sweetalert2.all.min.js') }}" defer></script>
+
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">

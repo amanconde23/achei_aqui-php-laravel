@@ -114,6 +114,7 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
+        Alert::success('Sucesso!', 'Produto Alterado com Sucesso!');
         $product = Product::find($id);
         $product->name = $request->name;
         $product->category = $request->category;
@@ -134,10 +135,11 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy($id)
     {
+        $product = Product::findOrFail($id);
         $product->delete();
-        return redirect()->route('products');
+        return response()->json(['status'=>'Produto excluído com sucesso!']);
     }
 
     /**

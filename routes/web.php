@@ -132,7 +132,7 @@ Route::put('produto/edit/{product}', 'ProductController@update')->name('product-
 
 // **DELETE PRODUCT** //
 // ação de apagar produto
-Route::delete('produto/destroy/{product}', 'ProductController@destroy')->name('product-destroy');
+Route::delete('product-destroy/{id}', 'ProductController@destroy')->name('product-destroy');
 // **END DELETE PRODUCT ** //
 
 
