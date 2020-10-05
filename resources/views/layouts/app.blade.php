@@ -82,6 +82,7 @@
 
         <main class="conteudo">
             @yield('content')
+            @include('sweetalert::alert')
         </main>
 
         <footer>

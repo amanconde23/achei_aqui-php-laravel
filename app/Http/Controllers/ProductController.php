@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\User;
 use Illuminate\Support\Facades\Gate;
+use RealRashid\SweetAlert\Facades\Alert;
+
 
 class ProductController extends Controller
 {
@@ -66,6 +68,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        Alert::success('Sucesso!', 'Produto Cadastrado com Sucesso!');
         $userId = Auth::user()->id;
         $product = new Product();
         $product->user_id = $userId;

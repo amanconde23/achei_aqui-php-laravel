@@ -211,12 +211,8 @@ html, body{
 }
 
 .msg-busca-empty{
-    margin-top: 80px;
-    margin-bottom: 50px;
-}
-
-.space{
-    margin-bottom: 100px;
+    margin-top: 100px;
+    margin-bottom: 160px;
 }
 
 .form-avaliar-usuario{

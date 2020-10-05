@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use RealRashid\SweetAlert\Facades\Alert;
+
 
 class UserController extends Controller
 {
@@ -64,6 +66,7 @@ class UserController extends Controller
      */
     public function updateUser(Request $request, $id)
     {
+        Alert::success('Sucesso!', 'Usuário Atualizado com Sucesso!');
         $user = User::find($id);
         $user->name = $request->name;
         $user->phone = $request->phone;
@@ -71,7 +74,7 @@ class UserController extends Controller
         $user->password = Hash::make($request->password);
         $user->save();
         
-        return redirect()->route('home');
+        return redirect()->route('user-pannel');
     }
 
     /**

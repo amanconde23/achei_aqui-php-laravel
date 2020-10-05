@@ -6,6 +6,8 @@ use App\UserRating;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\User;
+use RealRashid\SweetAlert\Facades\Alert;
+
 
 class UserRatingController extends Controller
 {
@@ -20,6 +22,7 @@ class UserRatingController extends Controller
 
     public function store(Request $request)
     {
+        Alert::success('Sucesso!', 'Usuário Avaliado com Sucesso!');
         $userId = Auth::user()->id;
         $userRating = new UserRating();
         $userRating->user_id = $userId;
