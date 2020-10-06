@@ -25,7 +25,7 @@
                             <label for="">Nova Senha do Usuário:</label>
                             <input type="text" name="password" value="">
                         </div>
-                        <div class="btn-criar-produto">
+                        <div class="btn-crud">
                             <button type="submit" class="btn btn-warning">Editar Usuário</button>
                         </div>
                     </form>

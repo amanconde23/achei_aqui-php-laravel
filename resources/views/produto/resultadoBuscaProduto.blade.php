@@ -21,7 +21,7 @@
                                 <td>{{ $product->name }}</td>
                                 <td>{{ $product->category }}</td>
                                 <td>{{ $product->statusProduto }}</td>
-                                <td class="align-middle btn-ver-produto">
+                                <td class="align-middle btn-crud">
                                     <a class="btn btn-primary" href="{{ route('product-show-details', ['product' => $product->id]) }}">Ver Produto</a>
                                 </td>
                             </tr>

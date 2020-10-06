@@ -22,12 +22,13 @@
                         </div>
                         <div class="form-group">
                             <label for="statusProduto">Status do Produto:</label>
-                            <select class="form-control status" id="statusProduto" name="statusProduto">
+                            <select class="form-control status" id="statusProduto" name="statusProduto" required>
+                                <option value="" selected disabled></option>
                                 <option value="Disponivel">Disponível</option>
                                 <option value="Indisponivel">Indisponível</option>
                             </select>
                         </div>
-                        <div class="btn-criar-produto">
+                        <div class="btn-crud">
                             <button type="submit" class="btn btn-success">Cadastrar Produto</button>
                         </div>
                         <div class="form-group">

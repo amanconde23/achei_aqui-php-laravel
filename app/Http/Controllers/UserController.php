@@ -6,7 +6,7 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use RealRashid\SweetAlert\Facades\Alert;
-
+use Illuminate\Support\Facades\Gate;
 
 class UserController extends Controller
 {
@@ -52,6 +52,10 @@ class UserController extends Controller
      */
     public function editUserForm(User $user)
     {
+        if (Gate::denies('updateUser', $user)) {
+            return view('admin/acessoNegado');
+        }
+
         return view('usuario/editarUsuario', [
             'user' => $user
         ]);

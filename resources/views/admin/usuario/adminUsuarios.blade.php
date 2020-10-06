@@ -10,7 +10,7 @@
                         <td>ID</td>
                         <td>Nome:</td>
                         <td>Telefone:</td>
-                        <td>Permissão do Usuário:</td>
+                        <td>Permissão:</td>
                         <td>Email:</td>
                         <td>Ações:</td>
                     </tr>
@@ -27,7 +27,7 @@
                                 @csrf
                                 @method('delete')
                                 <input type="hidden" name="user-destroy-admin" value="{{ $user->id }}">
-                                <div class="btn-criar-produto">
+                                <div class="btn-crud">
                                     <button type="submit" class="btn btn-danger">Banir Usuário</button>
                                 </div>
                             </form>

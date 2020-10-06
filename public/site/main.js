@@ -20,6 +20,23 @@ $(document).ready(function(){
 });
 
 $(document).ready(function(){
+    $('.form-avaliar-usuario').validate({
+        errorLabelContainer: "#erros",
+        wrapper: "p",
+        rules: {
+            avaliado: 'required',
+            rating: 'required',
+            comment: 'required'
+        },
+        messages: {
+            avaliado: 'Esse campo é obrigatório!',
+            rating: 'Esse campo é obrigatório!',
+            comment: 'Esse campo é obrigatório!'
+        },
+    });
+});
+
+$(document).ready(function(){
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
