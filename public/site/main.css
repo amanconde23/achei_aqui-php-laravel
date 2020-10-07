@@ -199,6 +199,86 @@ html, body{
     padding: 50px 0;
 }
 
+.home-hero{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 140px;
+}
+
+.home-img img{
+    width: 500px;
+}
+
+.home-navbar{
+    display: flex;
+    justify-content: flex-end;
+    padding: 50px 0 70px 0;
+}
+
+.home-navbar a{
+    color: #fff;
+    margin-right: 20px;
+    font-size: 22px;
+}
+
+.home-navbar a:hover{
+    color: #0056b3;
+    text-decoration: none !important;
+}
+
+.home-top{
+    padding-right: 110px;
+    padding-left: 110px;
+    background-color: #B9E2E4;
+}
+
+.home-top-text{
+    text-align: center;
+    color: #fff;
+    margin-right: 30px;
+}
+
+.home-title{
+    font-family: 'Londrina Solid', cursive;
+    font-size: 70px;
+}
+
+.home-subtitle{
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.home-about-us{
+    padding: 100px 0;
+    text-align: center;
+    color: #7CB1B4;
+}
+
+.home-about-us-h3{
+    font-size: 36px;
+    font-weight: bold;
+    padding-bottom: 20px;
+}
+
+.home-about-us-p{
+    font-size: 22px;
+    margin-bottom: 40px;
+}
+
+.btn-participar-home{
+    color: #fff;
+    background-color: #7CB1B4;
+    padding: 10px 30px;
+    font-size: 20px;
+    border-radius: 50px;
+}
+
+.btn-participar-home:hover{
+    color: #0056b3;
+    text-decoration: none !important;
+}
+
 footer{
     background-color: #87CCCF;
     text-align: center;

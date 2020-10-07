@@ -15,7 +15,7 @@
 
             <div class="col-md-8 col-sm-8 content-user-pannel">
                 <h1 class="titulo-dashboard">Portal de Economia Colaborativa</h1>
-                <img class="bg-img-dashboard" src="{{ asset('images/bg_image.jpg') }}" alt="">
+                <img class="bg-img-dashboard" src="{{ asset('images/bg_image.jpg') }}" alt="Pessoas montando um quebra-cabeça">
             </div>
         </div>
     </div>
