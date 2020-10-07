@@ -6,6 +6,7 @@
             <div class="col-md-4 sidebar-dashboard">
                 <nav class="nav flex-column ">
                     <a class="nav-link btn-sidebar-dashboard" href="{{ route ('admin-users') }}"><i class="fas fa-user"></i> Administrar Usuários</a>
+                    <a class="nav-link btn-sidebar-dashboard" href="{{ route('admin-user-ratings') }}"><i class="fas fa-star"></i> Avaliações dos Usuários</a>
                 </nav>
             </div>
 

@@ -28,7 +28,6 @@
                                         <a class="btn btn-primary" href="{{ route('product-show-details', ['product' => $product->id]) }}">Ver</a>
                                         <a class="btn btn-warning" href="{{ route('product-edit-form', ['product' => $product->id]) }}">Editar</a>
                                         <button type="submit" class="btn btn-danger delete-product-btn">Excluir</button>
-
                                     </div>
                                 </td>
                             </tr>

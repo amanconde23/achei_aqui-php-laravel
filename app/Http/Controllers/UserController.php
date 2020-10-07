@@ -52,10 +52,6 @@ class UserController extends Controller
      */
     public function editUserForm(User $user)
     {
-        if (Gate::denies('updateUser', $user)) {
-            return view('admin/acessoNegado');
-        }
-
         return view('usuario/editarUsuario', [
             'user' => $user
         ]);
@@ -87,16 +83,18 @@ class UserController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroyUser(User $user)
+    public function destroyUser($id)
     {
+        $user = User::findOrFail($id);
         $user->delete();
-        return redirect()->route('home');
+        return response()->json(['status'=>'Sua conta foi excluída com sucesso!']);
     }
 
-    public function destroyUserAdmin(User $user)
+    public function destroyUserAdmin($id)
     {
+        $user = User::findOrFail($id);
         $user->delete();
-        return redirect()->route('admin-users');
+        return response()->json(['status'=>'Usuário excluído com sucesso!']);
     }
 
     /**

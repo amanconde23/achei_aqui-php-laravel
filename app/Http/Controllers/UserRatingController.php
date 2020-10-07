@@ -11,6 +11,22 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 class UserRatingController extends Controller
 {
+    public function index()
+    {
+        $userRatings = UserRating::all();
+        return view('admin/usuario/userRatings', [
+            'userRatings' => $userRatings,
+
+        ]);
+    }
+
+    public function showOneAdminUser(User $userRating)
+    {
+        return view('admin/usuario/verAdminUsuario', [
+            'userRating' => $userRating
+        ]);
+    }
+
     public function create(UserRating $userRating)
     {
         $users = User::all();

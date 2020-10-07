@@ -77,4 +77,74 @@ $(document).ready(function(){
             }
         });
     });
+
+    $('.delete-user-admin-btn').click(function(e){
+        e.preventDefault();
+        var delete_val = $(this).closest('tr').find('.delete_val').val();
+
+        Swal.fire({
+            title: 'Tem certeza que deseja excluir o usuário?',
+            text: 'Essa ação não pode ser desfeita',
+            icon: 'error',
+            showCancelButton: true,
+            confirmButtonText: 'Excluir',
+            cancelButtonText: 'Cancelar',
+        })
+        .then((result) => {
+            if(result.isConfirmed){
+                var data = {
+                    "_token": $('input[name="csrf-token"]').val(),
+                    "id": delete_val,
+                };
+                $.ajax({
+                    type: 'DELETE',
+                    url: 'admin/usuario/destroy/'+delete_val,
+                    data: data,
+                    success: function(response){
+                        Swal.fire(response.status, {
+                            icon: 'success',
+                        })
+                        .then((result) => {
+                            location.reload();
+                        });
+                    }
+                });           
+            }
+        });
+    });
+
+    $('.delete-user-btn').click(function(e){
+        e.preventDefault();
+        var delete_val = $(this).closest('form').find('.delete_val').val();
+
+        Swal.fire({
+            title: 'Tem certeza que deseja excluir a sua conta?',
+            text: 'Essa ação não pode ser desfeita',
+            icon: 'error',
+            showCancelButton: true,
+            confirmButtonText: 'Excluir',
+            cancelButtonText: 'Cancelar',
+        })
+        .then((result) => {
+            if(result.isConfirmed){
+                var data = {
+                    "_token": $('input[name="csrf-token"]').val(),
+                    "id": delete_val,
+                };
+                $.ajax({
+                    type: 'DELETE',
+                    url: 'destroy/'+delete_val,
+                    data: data,
+                    success: function(response){
+                        Swal.fire(response.status, {
+                            icon: 'success',
+                        })
+                        .then((result) => {
+                            window.location.replace('/');
+                        });
+                    }
+                });           
+            }
+        });
+    });
 });

@@ -13,11 +13,11 @@
 
                 <div class="btn-crud">
                     <a class="btn btn-warning" href="{{ route('user-edit-form', ['user' => Auth::user()->id]) }}">Editar Usuário</a>
-                    <form action="{{ route('user-destroy', ['user' => Auth::user()->id]) }}" method="post">
+                    <form action="{{ route('user-destroy', ['user' => $user->id]) }}" method="post">
                         @csrf
                         @method('delete')
-                        <input type="hidden" name="user-destroy'" value="{{ $user->id }}">
-                        <button type="submit" class="btn btn-danger">Excluir Conta</button>
+                        <input type="hidden" name="user-destroy" class="delete_val" value="{{ $user->id }}">
+                        <button type="submit" class="btn btn-danger delete-user-btn">Excluir Conta</button>
                     </form>
                 </div>
                 <a class="btn btn-info btn-voltar" href="{{ url()->previous() }}">Voltar</a>

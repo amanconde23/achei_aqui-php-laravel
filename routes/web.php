@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Facades\View;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,6 +41,10 @@ Route::group(['middleware' => ['auth','admin']], function(){
     // **SHOW ADMIN USERS ** //
     Route::get('admin-usuarios', 'UserController@index')->name('admin-users');
     // **END ADMIN PRODUCTS ** //
+    
+    Route::get('admin-user-ratings', 'UserRatingController@index')->name('admin-user-ratings');
+
+    Route::get('admin-user-ratings/show/{userRating}', 'UserRatingController@showOneAdminUser')->name('admin-user-ratings-show');
 
     // **DELETE USER** //
     // ação de apagar usuario
@@ -48,6 +52,14 @@ Route::group(['middleware' => ['auth','admin']], function(){
     // **END DELETE USER ** //
 });
 // **END ROTAS ACESSADAS PELO ADMIN  ** //
+
+
+// **ACCESS DENIED PAGE ** //
+Route::get('access-denied', function () {
+    return view('admin/acessoNegado');
+});
+// **END ACCESS DENIED PAGE ** //
+
 
 // **ROTAS USUARIOS** //
 Route::prefix('usuario')->group(function(){
@@ -57,7 +69,7 @@ Route::prefix('usuario')->group(function(){
 
     // **UPDATE PRODUCT** //
     // formulario de editar produto
-    Route::get('editarform/{user}', 'UserController@editUserForm')->name('user-edit-form');
+    Route::get('editarform/{user}', 'UserController@editUserForm')->name('user-edit-form')->middleware('auth');
 
     // ação de editar produto
     Route::put('editar/{user}', 'UserController@updateUser')->name('user-edit');
@@ -71,16 +83,9 @@ Route::prefix('usuario')->group(function(){
 // **END ROTAS USUARIOS** //
 
 
-// **ACCESS DENIED PAGE ** //
-Route::get('access-denied', function () {
-    return view('admin/acessoNegado');
-});
-// **END ACCESS DENIED PAGE ** //
-
-
 // **SEARCHBAR PRODUCT ** //
 // ação de buscar
-Route::get('buscar-produto', 'ProductController@search')->name('search-products-results');
+Route::get('buscar-produto', 'ProductController@search')->name('search-products-results')->middleware('auth');
 
 // mostrar resultados da busca
 Route::get('resultado-busca-produto', function () {
@@ -90,7 +95,7 @@ Route::get('resultado-busca-produto', function () {
 
 // **SEARCHBAR USER ** //
 // ação de buscar
-Route::get('buscar-usuario', 'UserController@search')->name('search-user-results');
+Route::get('buscar-usuario', 'UserController@search')->name('search-user-results')->middleware('auth');
 
 // mostrar resultados da busca
 Route::get('resultado-busca-usuario', function () {
@@ -102,19 +107,19 @@ Route::get('resultado-busca-usuario', function () {
 // ** ROTAS PRODUTOS** //
 // **SHOW PRODUCT** //
 // listar todos os produtos
-Route::get('produtos-cadastrados', 'ProductController@showAllProducts')->name('all-products');
+Route::get('produtos-cadastrados', 'ProductController@showAllProducts')->name('all-products')->middleware('auth');
 
 // listar todos os produtos do usuario
 Route::get('meus-produtos', 'ProductController@index')->name('products');
 
 // mostrar detalhes de um produto
-Route::get('ver-produto/{product}', 'ProductController@showOneProduct')->name('product-show-details');
+Route::get('ver-produto/{product}', 'ProductController@showOneProduct')->name('product-show-details')->middleware('auth');
 // **END SHOW PRODUCT ** //
 
 
 // **CREATE PRODUCT** //
 // formulario de criar novo produto
-Route::get('produto/novo', 'ProductController@create')->name('product-new');
+Route::get('produto/novo', 'ProductController@create')->name('product-new')->middleware('auth');
 
 // ação de criar e armazenar novo produto
 Route::post('produto/store', 'ProductController@store')->name('product-store');
@@ -143,6 +148,9 @@ Route::get('painel-usuario', function () {
 // **END DASHBOARD USUARIO COMUM** //
 
 // **AVALIAR USUÁRIO** //
-Route::get('rate-user', 'UserRatingController@create')->name('rate-user');
+// formulario de avaliar usuario 
+Route::get('rate-user', 'UserRatingController@create')->name('rate-user')->middleware('auth');
+
+// ação de avaliar usuario 
 Route::post('rate-user/store', 'UserRatingController@store')->name('rate-user-store');
 // **END AVALIAR USUÁRIO** //

@@ -26,9 +26,9 @@
                             <form action="{{ route('user-destroy-admin', ['user' => $user->id]) }}" method="post">
                                 @csrf
                                 @method('delete')
-                                <input type="hidden" name="user-destroy-admin" value="{{ $user->id }}">
+                                <input type="hidden" name="user-destroy-admin" class="delete_val" value="{{ $user->id }}">
                                 <div class="btn-crud">
-                                    <button type="submit" class="btn btn-danger">Banir Usuário</button>
+                                    <button type="submit" class="btn btn-danger delete-user-admin-btn">Banir Usuário</button>
                                 </div>
                             </form>
                         </td>
