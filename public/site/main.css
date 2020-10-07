@@ -210,6 +210,15 @@ html, body{
     width: 500px;
 }
 
+.home-navbar-logado{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.home-navbar-logado a{
+    margin-right: 30px;
+}
+
 .home-navbar{
     display: flex;
     justify-content: flex-end;
