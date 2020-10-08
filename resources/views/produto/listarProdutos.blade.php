@@ -4,11 +4,11 @@
 <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1 class="titulo-pagina">Meus Produtos Cadastrados</h1>
+                <h1 class="titulo-pagina">Meus Produtos</h1>
                     <table class="table table-bordered table-hover">
                         <thead>
                             <tr>
-                                <td>Imagem</td>
+                                <td>Imagem:</td>
                                 <td>Nome:</td>
                                 <td>Categoria:</td>
                                 <td>Status:</td>
@@ -34,7 +34,7 @@
                             @endforeach
                         </tbody>
                     </table>
-                    <a class="btn btn-info" href="{{ url()->previous() }}">Voltar</a>
+                    <a class="btn btn-info btn-voltar" href="{{ url()->previous() }}">Voltar</a>
             </div>
         </div>
     </div>

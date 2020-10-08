@@ -32,7 +32,7 @@
                     <h1 class="msg-busca-empty">{{ $message }}</h1>
                     <div class="space"></div>
                 @endif
-                <a class="btn btn-info" href="{{ url()->previous() }}">Voltar</a>
+                <a class="btn btn-info btn-voltar" href="{{ url()->previous() }}">Voltar</a>
             </div>
         </div>
     </div>

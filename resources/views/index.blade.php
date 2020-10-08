@@ -64,7 +64,7 @@
 
     <div class="container home-about-us">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-12 col-sm-8">
                 <h3 class="home-about-us-h3">Sobre Nós</h3>
                 <p class="home-about-us-p">
                     Buscamos oferecer um ambiente seguro de compartilhamento de coisas. Sabe aquele objeto que você comprou, usou uma vez, e deixou encostado em um canto? Que tal repassá-lo para alguém que irá fazer bom uso dele? Vamos promover a economia colaborativa e deixar de lado o consumismo!

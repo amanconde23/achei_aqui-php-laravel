@@ -76,19 +76,9 @@ html, body{
     margin: auto;
 }
 
-.titulo-meu-perfil{
-    margin: 0;
-}
-
-.meu-perfil{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.item-box-meu-perfil{
-    margin: 0;
+.card-body-content{
+    padding: 30px 0;
+    text-align: center;
 }
 
 .img-produto{
@@ -112,19 +102,11 @@ html, body{
 }
 
 .btn-voltar{
-    margin: 20px 0;
-}
-
-.btn-ver-produto{
-    text-align: center;
+    margin: 30px 0;
 }
 
 .btn-searchbar{
     margin-left: 10px;
-}
-
-.btn-esqueceu-senha:hover{
-    color: #0056b3;
 }
 
 .table{
@@ -137,32 +119,7 @@ html, body{
     color: #212529;
     text-align: center;
     margin: 0;
-}
-
-.status{
-    margin: auto;
-    width: 60%;
-}
-
-.form-group-without-margin{
-    margin: 0;
-}
-
-.box-form-cadastrar-produto{
-    border: 1px solid #212529;
-    padding: 20px;
-    text-align: center;
-    margin: auto;
-    margin-bottom: 30px;
-    margin-top: 20px;
-}
-
-.box-ver-produto{
-    border: 1px solid #212529;
-    padding: 20px;
-    margin-top: 20px;
-    margin-bottom: 30px;
-    text-align: center;
+    font-size: 30px;
 }
 
 .img-ver-produto{
@@ -171,32 +128,13 @@ html, body{
     display: block;
 }
 
-.p-without-margin{
-    margin: 0;
-}
-
 .searchbar-products{
     text-align: end;
 }
 
-#searchbar-products-page{
-    display: flex;
-    justify-content: center;
-    width: 400px;
-    margin: 60px auto;
-}
-
-.search-page{
-    width: 360px;
-}
-
 .msg-busca-empty{
     margin-top: 100px;
-    margin-bottom: 160px;
-}
-
-.form-avaliar-usuario{
-    padding: 50px 0;
+    margin-bottom: 130px;
 }
 
 .home-hero{
@@ -215,7 +153,7 @@ html, body{
     justify-content: flex-end;
 }
 
-.home-navbar-logado a{
+.home-navbar-link{
     margin-right: 30px;
 }
 
@@ -325,5 +263,36 @@ footer{
 @media(max-width:770px){
     .bg-img-dashboard{
         width: 300px;
+    }
+    .home-navbar-logado {
+        display: flex;
+        flex-direction: column;
+    }
+    .searchbar-products {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .home-img img {
+        width: 320px;
+    }
+    .home-navbar {
+        display: flex;
+        padding: 40px 0;
+        align-items: center;
+        justify-content: center;
+    }
+    .home-top {
+        padding: 0;
+        background-color: #B9E2E4;
+    }
+    .home-top-text {
+        margin: 0;
+    }
+    footer {
+        font-size: 16px;
+    }
+    .home-about-us{
+        padding: 70px 0;
     }
 }

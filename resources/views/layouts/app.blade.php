@@ -60,7 +60,7 @@
                             @endif
                         @else
                             <li class="nav-item dropdown home-navbar-logado">
-                                <a class="nav-link nav-link-header" href="{{ url('painel-usuario') }}">Painel do Usuário</a>
+                                <a class="nav-link nav-link-header home-navbar-link" href="{{ url('painel-usuario') }}">Painel do Usuário</a>
 
                                 <a id="navbarDropdown" class="nav-link nav-link-header dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     Olá, {{ Auth::user()->name }}
