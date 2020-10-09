@@ -4,6 +4,13 @@
 <div class="container">
         <div class="row">
             <div class="col-md-12">
+                <form class="searchbar-products" action="{{ route('search-user-results') }}" method="GET">
+                    <div class="form-group">
+                        @csrf
+                        <input type="text" name="searchUser" placeholder="Digite a sua busca">
+                        <button type="submit" class="btn btn-success btn-searchbar">Buscar</button>
+                    </div>
+                </form>
                 <h1 class="titulo-pagina">Avaliações dos Usuários</h1>
                     <table class="table table-bordered table-hover">
                         <thead>

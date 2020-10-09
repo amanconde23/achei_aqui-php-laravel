@@ -9,21 +9,22 @@
                     <table class="table table-bordered table-hover">
                         <tr>
                             <td>Nome:</td>
-                            <td>Ações:</td>
+                            <td>Avaliação:</td>
+                            <td>Comentário:</td>
                         </tr>
-                        @foreach($details as $user)
+                        @foreach($details as $userRating)
                         <tr>
-                            <td>{{ $user->name }}</td>
-                            <td class="align-middle btn-crud">
-                                <a class="btn btn-primary" href="{{ route('user', ['user' => $user->id]) }}">Avaliar Usuário</a>
-                            </td>
+                            <td>{{ $userRating->avaliado }}</td>
+                            <td>{{ $userRating->rating }}</td>
+                            <td>{{ $userRating->comment }}</td>
                         </tr>
                         @endforeach
                     </table>
                 @else
-                    <h1>{{ $message }}</h1>
-                    <a class="btn btn-info" href="{{ url()->previous() }}">Voltar</a>
+                    <h1 class="msg-busca-empty">{{ $message }}</h1>
+                    <div class="space"></div>
                 @endif
+                <a class="btn btn-info btn-voltar" href="{{ url()->previous() }}">Voltar</a>
             </div>
         </div>
     </div>

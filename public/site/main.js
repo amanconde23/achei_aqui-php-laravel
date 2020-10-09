@@ -83,11 +83,11 @@ $(document).ready(function(){
         var delete_val = $(this).closest('tr').find('.delete_val').val();
 
         Swal.fire({
-            title: 'Tem certeza que deseja excluir o usuário?',
+            title: 'Tem certeza que deseja banir o usuário?',
             text: 'Essa ação não pode ser desfeita',
             icon: 'error',
             showCancelButton: true,
-            confirmButtonText: 'Excluir',
+            confirmButtonText: 'Banir',
             cancelButtonText: 'Cancelar',
         })
         .then((result) => {

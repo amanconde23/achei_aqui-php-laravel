@@ -20,7 +20,7 @@ class UserRatingController extends Controller
         ]);
     }
 
-    public function showOneAdminUser(User $userRating)
+    public function showOneAdminUser(UserRating $userRating)
     {
         return view('admin/usuario/verAdminUsuario', [
             'userRating' => $userRating

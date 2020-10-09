@@ -81,6 +81,10 @@ html, body{
     text-align: center;
 }
 
+.card-space{
+    margin-bottom: 40px;
+}
+
 .img-produto{
     width: 100px;
 }

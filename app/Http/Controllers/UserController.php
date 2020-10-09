@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Gate;
+use App\UserRating;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -39,8 +41,10 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
+        $userRating = UserRating::where(['avaliado'=>Auth::user()->name])->get();
         return view('usuario/verUsuario', [
-            'user' => $user
+            'user' => $user,
+            'userRating' => $userRating
         ]);
     }
 
@@ -71,7 +75,6 @@ class UserController extends Controller
         $user->name = $request->name;
         $user->phone = $request->phone;
         $user->email = $request->email;
-        $user->password = Hash::make($request->password);
         $user->save();
         
         return redirect()->route('user-pannel');
@@ -104,9 +107,9 @@ class UserController extends Controller
     public function search(Request $request)
     {
         $search = $request->get('searchUser');
-        $users = User::where('name', 'LIKE', '%'.$search.'%')->get();
-        if(count($users) > 0){
-            return view('usuario/resultadoBuscaUsuario')->withDetails($users)->withQuery($search);
+        $userRating = UserRating::where('avaliado', 'LIKE', '%'.$search.'%')->get();
+        if(count($userRating) > 0){
+            return view('usuario/resultadoBuscaUsuario')->withDetails($userRating)->withQuery($search);
         }else{
             return view('usuario/resultadoBuscaUsuario')->withMessage('Nenhum resultado encontrado');
         }
