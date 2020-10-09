@@ -42,10 +42,6 @@ Route::group(['middleware' => ['auth','admin']], function(){
     Route::get('admin-usuarios', 'UserController@index')->name('admin-users');
     // **END ADMIN PRODUCTS ** //
     
-    Route::get('admin-user-ratings', 'UserRatingController@index')->name('admin-user-ratings');
-
-    Route::get('admin-user-ratings/show/{userRating}', 'UserRatingController@showOneAdminUser')->name('admin-user-ratings-show');
-
     // **DELETE USER** //
     // ação de apagar usuario
     Route::delete('admin/usuario/destroy/{user}', 'UserController@destroyUserAdmin')->name('user-destroy-admin');
@@ -154,3 +150,8 @@ Route::get('rate-user', 'UserRatingController@create')->name('rate-user')->middl
 // ação de avaliar usuario 
 Route::post('rate-user/store', 'UserRatingController@store')->name('rate-user-store');
 // **END AVALIAR USUÁRIO** //
+
+
+// **VER AVALIAÇÃO DOS USUÁRIOS** //
+Route::get('user-ratings', 'UserRatingController@index')->name('user-ratings');
+// **END VER AVALIAÇÃO DOS USUÁRIOS** //
