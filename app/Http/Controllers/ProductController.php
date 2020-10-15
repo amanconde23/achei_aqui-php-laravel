@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\User;
 use Illuminate\Support\Facades\Gate;
 use RealRashid\SweetAlert\Facades\Alert;
+use App\UserRating;
 
 
 class ProductController extends Controller
@@ -31,8 +32,11 @@ class ProductController extends Controller
      */
     public function showOneProduct(Product $product)
     {
+        $user = $product->user->name;
+        $userRating = UserRating::where(['avaliado' => $user])->get();
         return view('produto/verProduto', [
-            'product' => $product
+            'product' => $product,
+            'userRating' => $userRating
         ]);
     }
 

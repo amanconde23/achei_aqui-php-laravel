@@ -42,4 +42,16 @@ class UserRatingController extends Controller
         
         return redirect()->route('user-pannel');
     }
+
+    // public function badUserRating(Request $request)
+    // {
+    //     $search = "Ruim";
+    //     $userRating = UserRating::where('rating', "like", "%" . $search . "%")->get();
+        
+    //     if(count($userRating) > 0){
+    //         return view('usuario/resultadoBuscaUsuario')->withDetails($userRating)->withQuery($search);
+    //     }else{
+    //         return view('usuario/resultadoBuscaUsuario')->withMessage('Nenhum resultado encontrado');
+    //     }
+    // }
 }

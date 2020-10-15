@@ -11,7 +11,7 @@
                         <button type="submit" class="btn btn-success btn-searchbar">Buscar</button>
                     </div>
                 </form>
-
+                
                 <h1 class="titulo-pagina">Produtos no Portal</h1>
 
                 <table class="table table-bordered table-hover">
@@ -31,6 +31,7 @@
                             <td class="align-middle">{{ $product->name }}</td>
                             <td class="align-middle">{{ $product->category }}</td>
                             <td class="align-middle">{{ $product->statusProduto }}</td>
+
                             <td class="align-middle">
                                 <div class="btn-crud">
                                     <a class="btn btn-primary" href="{{ route('product-show-details', ['product' => $product->id]) }}">Ver</a>

@@ -10,7 +10,6 @@
                     <a class="nav-link btn-sidebar-dashboard" href="{{ route('product-new') }}"><i class="fas fa-plus-circle"></i> Cadastrar Produto</a>
                     <a class="nav-link btn-sidebar-dashboard" href="{{ route('all-products') }}"><i class="fas fa-search"></i> Buscar Produto</a>
                     <a class="nav-link btn-sidebar-dashboard" href="{{ route('rate-user') }}"><i class="fas fa-star"></i> Avaliar Usuário</a>
-                    <a class="nav-link btn-sidebar-dashboard" href="{{ route('user-ratings') }}"><i class="fas fa-star"></i> Ver Avaliações dos Usuários</a>
                 </nav>
             </div>
 
