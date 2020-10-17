@@ -89,6 +89,27 @@ html, body{
     width: 100px;
 }
 
+.whatsapp-icon{
+    margin-right: 10px;
+}
+
+.btn-whatsapp{
+    background-color: #01e675;
+    color: #fff;
+    border-radius: 20px;
+    width: 240px;
+    padding: 14px 24px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.btn-whatsapp:hover{
+    text-decoration: none;
+    color: #fff;
+    background-color: #14d675;
+    transition: background-color 0.5s ease;
+}
+
 .btn{
     margin-right: 10px;
     color: #212529;
@@ -128,7 +149,7 @@ html, body{
 
 .img-ver-produto{
     width: 200px;
-    margin: auto;
+    margin: 40px auto;
     display: block;
 }
 

@@ -11,9 +11,12 @@
                     <div class="card-body card-body-content">
                         <p><strong>Categoria: </strong>{{ $product->category }}</p>
                         <p><strong>Proprietário: </strong>{{ $product->user->name }}</p>
-                        <p><strong>Telefone: </strong>{{ $product->user->phone }}</p>
                         <p><strong>Status: </strong>{{ $product->statusProduto }}</p>
-                        <p><img class="img-ver-produto" src="{{ env('APP_URL') }}/storage/{{ $product->image }}" alt="">
+                        <p><img class="img-ver-produto" src="{{ env('APP_URL') }}/storage/{{ $product->image }}" alt=""></p>
+                        <p><a href="https://api.whatsapp.com/send?1=pt_BR&phone=55{{$product->user->phone}}&text=Tenho interesse no seu produto: {{$product->name}}" class="btn-whatsapp" target="_blank">
+                            <img class="whatsapp-icon" src="{{ asset('images/whatsapp.svg') }}" alt="Whatsapp">Entrar em contato
+                        </a></p>
+                        
                     </div>
                 </div>
 
