@@ -152,12 +152,24 @@ class ProductController extends Controller
     */
     public function search(Request $request)
     {
-        $search = $request->get('search');
-        $products = Product::where('name', 'LIKE', '%'.$search.'%')->get();
-        if(count($products) > 0){
-            return view('produto/resultadoBuscaProduto')->withDetails($products)->withQuery($search);
-        }else{
-            return view('produto/resultadoBuscaProduto')->withMessage('Nenhum resultado encontrado');
+        if($request->has('check-produto-disponivel')){
+            $search = $request->get('search');
+            $products = Product::where('name', 'LIKE', '%'.$search.'%')
+                ->where('statusProduto', 'disponivel')
+                ->get();
+            if(count($products) > 0){
+                return view('produto/resultadoBuscaProduto')->withDetails($products)->withQuery($search);
+            }else{
+                return view('produto/resultadoBuscaProduto')->withMessage('Nenhum resultado encontrado');
+            }
+        } else {
+            $search = $request->get('search');
+            $products = Product::where('name', 'LIKE', '%'.$search.'%')->get();
+            if(count($products) > 0){
+                return view('produto/resultadoBuscaProduto')->withDetails($products)->withQuery($search);
+            }else{
+                return view('produto/resultadoBuscaProduto')->withMessage('Nenhum resultado encontrado');
+            }
         }
     }
 }

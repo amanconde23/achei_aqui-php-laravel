@@ -106,7 +106,7 @@ html, body{
 .btn-whatsapp:hover{
     text-decoration: none;
     color: #fff;
-    background-color: #14d675;
+    background-color: #1ac26e;
     transition: background-color 0.5s ease;
 }
 
@@ -153,8 +153,26 @@ html, body{
     display: block;
 }
 
+.searchbar-products-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #dee2e6;
+    padding: 20px 0;
+    margin-bottom: 30px;
+}
+
 .searchbar-products{
-    text-align: end;
+    margin: 0;
+}
+
+.searchbar-products-content{
+    display: flex;
+    align-items: center;
+}
+
+.searchbar-products-check-label{
+    margin-right: 10px;
 }
 
 .msg-busca-empty{
@@ -292,11 +310,6 @@ footer{
     .home-navbar-logado {
         display: flex;
         flex-direction: column;
-    }
-    .searchbar-products {
-        display: flex;
-        justify-content: center;
-        align-items: center;
     }
     .home-img img {
         width: 320px;

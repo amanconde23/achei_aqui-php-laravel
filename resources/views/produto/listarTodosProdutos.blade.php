@@ -4,12 +4,19 @@
 <div class="container">
         <div class="row">
             <div class="col-md-12 ">
-                <form class="searchbar-products" action="{{ route('search-products-results') }}" method="GET">
-                    <div class="form-group">
+                <form class="searchbar-products-form" action="{{ route('search-products-results') }}" method="GET">
+                    <div class="form-group searchbar-products">
                         @csrf
-                        <input type="text" name="search" placeholder="Digite a sua busca">
-                        <button type="submit" class="btn btn-success btn-searchbar">Buscar</button>
+                        <div class="form-check searchbar-products-content">
+                            <input class="form-check-input" type="checkbox" value="check-produto-disponivel" name="check-produto-disponivel">
+                            <label class="form-check-label  searchbar-products-check-label" for="check-produto-disponivel">
+                                Mostrar somente produtos disponíveis
+                            </label>
+                            <input type="text" name="search" placeholder="Digite a sua busca">
+                            <button type="submit" class="btn btn-success btn-searchbar">Buscar</button>
+                        </div>
                     </div>
+                    
                 </form>
                 
                 <h1 class="titulo-pagina">Produtos no Portal</h1>
