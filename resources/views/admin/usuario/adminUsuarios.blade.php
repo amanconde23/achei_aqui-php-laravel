@@ -4,6 +4,13 @@
 <div class="container">
         <div class="row">
             <div class="col-md-12 ">
+                <form class="searchbar-products-form" action="{{ route('search-user-admin-results') }}" method="GET">
+                    <div class="form-group searchbar-products">
+                        @csrf
+                        <input type="text" name="searchUser" placeholder="Digite o usuário que procura" size="40">
+                        <button type="submit" class="btn btn-success btn-searchbar">Buscar</button>
+                    </div>
+                </form>
                 <h1 class="titulo-pagina">Usuários Cadastrados</h1>
                 <table class="table table-bordered table-hover">
                     <tr>

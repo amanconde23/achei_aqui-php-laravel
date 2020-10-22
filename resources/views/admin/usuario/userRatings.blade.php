@@ -4,10 +4,13 @@
 <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <form class="searchbar-products" action="{{ route('search-user-results') }}" method="GET">
+                <form class="searchbar-users-form" action="{{ route('search-user-results') }}" method="GET">
                     <div class="form-group">
+                        <h2 class="titulo-form-search-user">Faça sua busca para saber se o usuário está bem avaliado ou se precisa ser banido</h2>
+                    </div>
+                    <div class="form-group searchbar-products">
                         @csrf
-                        <input type="text" name="searchUser" placeholder="Digite a sua busca">
+                        <input type="text" name="searchUser" placeholder="Digite o usuário que procura" size="40">
                         <button type="submit" class="btn btn-success btn-searchbar">Buscar</button>
                     </div>
                 </form>

@@ -5,6 +5,7 @@
         <div class="row">
             <div class="col-md-12 ">
                 @if(isset($details))
+                    <h2 class="subtitulo-pagina usuario-bem-avaliado">{{ $message }}</h2>
                     <h1 class="titulo-pagina">Resultado da busca por {{ $query }} :</h1>
                     <table class="table table-bordered table-hover">
                         <tr>

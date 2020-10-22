@@ -91,11 +91,25 @@ Route::get('resultado-busca-produto', function () {
 
 // **SEARCHBAR USER ** //
 // ação de buscar
-Route::get('buscar-usuario', 'UserController@search')->name('search-user-results')->middleware('auth');
+Route::get('buscar-usuario', 'UserController@banUser')->name('search-user-results')->middleware('auth');
+
+Route::get('buscar-usuario-admin', 'UserController@searchUser')->name('search-user-admin-results')->middleware('auth');
 
 // mostrar resultados da busca
 Route::get('resultado-busca-usuario', function () {
-    return view('usuario/resultadoBuscaUsuario');
+    return view('admin/usuario/resultadoBuscaUsuario');
+});
+// **END SEARCHBAR USER ** //
+
+// mostrar resultados da busca e banir usuario
+Route::get('resultado-busca-bane-usuario', function () {
+    return view('usuario/resultadoBuscarBanirUsuario');
+});
+// **END SEARCHBAR USER ** //
+
+// buscar usuarios
+Route::get('resultado-busca-usuario-admin', function () {
+    return view('admin/usuario/resultadoBuscaAdminUsuario');
 });
 // **END SEARCHBAR USER ** //
 

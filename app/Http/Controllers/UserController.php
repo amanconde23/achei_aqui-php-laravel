@@ -100,18 +100,44 @@ class UserController extends Controller
         return response()->json(['status'=>'Usuário excluído com sucesso!']);
     }
 
-    /**
-     * Barra de pesquisa por produtos
-     * 
-    */
-    public function search(Request $request)
+    public function banUser(Request $request)
+    {
+        $rating = 'ruim';
+        $search = $request->get('searchUser');
+        $badRating = UserRating::where('avaliado', 'LIKE', '%'.$search.'%')
+            ->where('rating', 'LIKE', '%'.$rating.'%')
+            ->get();
+
+        $userRating = UserRating::where('avaliado', 'LIKE', '%'.$search.'%')
+            ->get();
+        if(count($badRating) >= 3 && count($userRating) > 0){
+            return view('admin/usuario/resultadoBuscarBanirUsuario')
+                ->withDetails($userRating)
+                ->withQuery($search)
+                ->withMessage('Esse usuário deve ser banido!');
+        }else if(count($badRating) > 3 || count($userRating) > 0){
+            return view('admin/usuario/resultadoBuscaUsuario')
+                ->withDetails($userRating)
+                ->withQuery($search)
+                ->withMessage('Esse usuário está bem avaliado!');
+        }
+        else{
+            return view('admin/usuario/resultadoBuscaUsuario')
+                ->withMessage('Nenhum resultado encontrado');
+        }
+    }
+
+    public function searchUser(Request $request)
     {
         $search = $request->get('searchUser');
-        $userRating = UserRating::where('avaliado', 'LIKE', '%'.$search.'%')->get();
-        if(count($userRating) > 0){
-            return view('usuario/resultadoBuscaUsuario')->withDetails($userRating)->withQuery($search);
+        $user = User::where('name', 'LIKE', '%'.$search.'%')->get();
+        if(count($user) > 0){
+            return view('admin/usuario/resultadoBuscaAdminUsuario')
+                ->withDetails($user)
+                ->withQuery($search);
         }else{
-            return view('usuario/resultadoBuscaUsuario')->withMessage('Nenhum resultado encontrado');
+            return view('admin/usuario/resultadoBuscaAdminUsuario')
+                ->withMessage('Nenhum resultado encontrado');
         }
     }
 }
