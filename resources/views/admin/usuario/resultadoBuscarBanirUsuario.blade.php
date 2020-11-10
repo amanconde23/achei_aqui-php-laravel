@@ -18,10 +18,30 @@
                             <td>{{ $userRating->avaliado }}</td>
                             <td>{{ $userRating->rating }}</td>
                             <td>{{ $userRating->comment }}</td>
+
                         </tr>
                         @endforeach
                     </table>
-                    <a class="btn btn-danger" href="{{ route ('admin-users') }}">Ir para página administrar usuários</a>
+                        
+                    @foreach($user as $user)
+                    <div class="card card-space">
+                        <div class="card-header d-flex justify-content-center">
+                            <h1 class="titulo-pagina">{{ $user->name }}</h1>
+                        </div>
+                        <div class="card-body card-body-content">
+                            <p><strong>Email: </strong> {{ $user->email }}</p>
+                            <p><strong>Telefone: </strong> {{ $user->phone }}</p>
+                            <div class="btn-crud">
+                        <form action="{{ route('user-destroy-admin', ['user' => $user->id]) }}" method="post">
+                            @csrf
+                            @method('delete')
+                            <input type="hidden" class="delete_val" value="{{ $user->id }}">
+                            <button type="submit" class="btn btn-danger ban-user-btn">Banir Usuário</button>
+                        </form>
+                    </div>
+                        </div>
+                    </div>
+                    @endforeach
                 @else
                     <h1 class="msg-busca-empty">{{ $message }}</h1>
                     <div class="space"></div>

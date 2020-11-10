@@ -147,4 +147,39 @@ $(document).ready(function(){
             }
         });
     });
+
+    $('.ban-user-btn').click(function(e){
+        e.preventDefault();
+        var delete_val = $(this).closest('form').find('.delete_val').val();
+
+        Swal.fire({
+            title: 'Tem certeza que deseja banir o usuário?',
+            text: 'Essa ação não pode ser desfeita',
+            icon: 'error',
+            showCancelButton: true,
+            confirmButtonText: 'Banir',
+            cancelButtonText: 'Cancelar',
+        })
+        .then((result) => {
+            if(result.isConfirmed){
+                var data = {
+                    "_token": $('input[name="csrf-token"]').val(),
+                    "id": delete_val,
+                };
+                $.ajax({
+                    type: 'DELETE',
+                    url: '/usuario/destroy/'+delete_val,
+                    data: data,
+                    success: function(response){
+                        Swal.fire(response.status, {
+                            icon: 'success',
+                        })
+                        .then((result) => {
+                            window.location.replace('/');
+                        });
+                    }
+                });           
+            }
+        });
+    });
 });

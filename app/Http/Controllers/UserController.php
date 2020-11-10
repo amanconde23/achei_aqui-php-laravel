@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Auth;
 class UserController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Mostra lista de usuarios cadastrados na pagina admin
      *
      * @return \Illuminate\Http\Response
      */
@@ -25,16 +25,8 @@ class UserController extends Controller
         ]);
     }
 
-    public function showAllUsers()
-    {
-        $users = User::all();
-        return view('usuario/usuarios', [
-            'users' => $users
-        ]);
-    }
-
     /**
-     * Display the specified resource.
+     * Mostra um usuario em detalhes
      *
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
@@ -49,7 +41,7 @@ class UserController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Formulario de editar usuario
      *
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
@@ -62,7 +54,7 @@ class UserController extends Controller
     }
     
     /**
-     * Update the specified resource in storage.
+     * Acao de editar usuario
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\User  $user
@@ -81,7 +73,7 @@ class UserController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Apagar usuario
      *
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
@@ -93,6 +85,10 @@ class UserController extends Controller
         return response()->json(['status'=>'Sua conta foi excluída com sucesso!']);
     }
 
+    /**
+     * Apagar usuario pag admin
+     *
+     */
     public function destroyUserAdmin($id)
     {
         $user = User::findOrFail($id);
@@ -100,23 +96,33 @@ class UserController extends Controller
         return response()->json(['status'=>'Usuário excluído com sucesso!']);
     }
 
+    /**
+     * Pesquisa status de avaliacao do usuario
+     *
+     */
     public function banUser(Request $request)
     {
         $rating = 'ruim';
         $search = $request->get('searchUser');
+        $user = User::where('name', 'LIKE', '%'.$search.'%')->get();
         $badRating = UserRating::where('avaliado', 'LIKE', '%'.$search.'%')
             ->where('rating', 'LIKE', '%'.$rating.'%')
             ->get();
 
         $userRating = UserRating::where('avaliado', 'LIKE', '%'.$search.'%')
             ->get();
+            
         if(count($badRating) >= 3 && count($userRating) > 0){
-            return view('admin/usuario/resultadoBuscarBanirUsuario')
+            return view('admin/usuario/resultadoBuscarBanirUsuario', [
+                'user' => $user
+            ])
                 ->withDetails($userRating)
                 ->withQuery($search)
                 ->withMessage('Esse usuário deve ser banido!');
         }else if(count($badRating) > 3 || count($userRating) > 0){
-            return view('admin/usuario/resultadoBuscaUsuario')
+            return view('admin/usuario/resultadoBuscaUsuario', [
+                'user' => $user
+            ])
                 ->withDetails($userRating)
                 ->withQuery($search)
                 ->withMessage('Esse usuário está bem avaliado!');
@@ -127,6 +133,10 @@ class UserController extends Controller
         }
     }
 
+    /**
+     * Pesquisar usuario
+     *
+     */
     public function searchUser(Request $request)
     {
         $search = $request->get('searchUser');

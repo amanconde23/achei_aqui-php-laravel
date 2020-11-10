@@ -11,6 +11,10 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 class UserRatingController extends Controller
 {
+    /**
+     * Mostra todas as avaliacoes dos usuarios
+     *
+     */
     public function index()
     {
         $userRatings = UserRating::all();
@@ -20,6 +24,10 @@ class UserRatingController extends Controller
         ]);
     }
 
+    /**
+     * Formulario de avaliacao de usuario
+     *
+     */
     public function create(UserRating $userRating)
     {
         $users = User::all();
@@ -29,6 +37,10 @@ class UserRatingController extends Controller
         ]);
     }
 
+    /**
+     * Armazenar avaliacao do usuario
+     *
+     */
     public function store(Request $request)
     {
         Alert::success('Sucesso!', 'Usuário Avaliado com Sucesso!');

@@ -55,7 +55,7 @@ class ProductController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Formulario de criacao de produto
      *
      * @return \Illuminate\Http\Response
      */
@@ -65,7 +65,7 @@ class ProductController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Armazenar produto
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -93,7 +93,7 @@ class ProductController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Formulario de editar produto
      *
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
@@ -110,7 +110,7 @@ class ProductController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Acao de atualizar produto
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Product  $product
@@ -134,7 +134,7 @@ class ProductController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Apagar produto
      *
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
