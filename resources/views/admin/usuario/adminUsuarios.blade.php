@@ -29,15 +29,18 @@
                         <td>{{ $user->phone }}</td>
                         <td>{{ $user->usertype }}</td>
                         <td>{{ $user->email }}</td>
-                        <td>
-                            <form action="{{ route('user-destroy-admin', ['user' => $user->id]) }}" method="post">
-                                @csrf
-                                @method('delete')
-                                <input type="hidden" name="user-destroy-admin" class="delete_val" value="{{ $user->id }}">
-                                <div class="btn-crud">
-                                    <button type="submit" class="btn btn-danger delete-user-admin-btn">Banir Usuário</button>
-                                </div>
-                            </form>
+                        <td class="align-middle">
+                            <div class="btn-crud">
+                                <a class="btn btn-warning" href="{{ route('user-edit-form', ['user' => $user->id]) }}">Editar</a>
+                                <form action="{{ route('user-destroy-admin', ['user' => $user->id]) }}" method="post">
+                                    @csrf
+                                    @method('delete')
+                                    <input type="hidden" name="user-destroy-admin" class="delete_val" value="{{ $user->id }}">
+                                    <div class="btn-crud">
+                                        <button type="submit" class="btn btn-danger delete-user-admin-btn">Banir</button>
+                                    </div>
+                                </form>
+                            </div>
                         </td>
                     </tr>
                     @endforeach

@@ -11,11 +11,11 @@
                     <div class="card-body card-body-content d-flex justify-content-center">
                         <form id="form-cadastrar-produto" action="{{ route('product-store') }}" method="POST" enctype='multipart/form-data'>
                             @csrf
-                            <div class="form-group">
+                            <div id="espacamento-form-group" class="form-group">
                                 <label for="name">Nome do Produto:</label>
                                 <input type="text" name="name">
                             </div>  
-                            <div class="form-group">
+                            <div id="espacamento-form-group" class="form-group">
                                 <label for="category">Categoria do Produto:</label>
                                 <select class="form-control" id="category" name="category" required>
                                     <option value="" selected disabled>Selecione a categoria</option>
@@ -27,11 +27,11 @@
                                     <option value="Outros">Outros</option>
                                 </select>
                             </div>                  
-                            <div class="form-group">
-                                <label for="image">Imagem do Produto:</label>
+                            <div id="espacamento-form-group" class="form-group">
+                                <label for="image">Imagem do Produto (png, jpg ou jpeg):</label><br>
                                 <input type="file" name="image">
                             </div>
-                            <div class="form-group">
+                            <div id="espacamento-form-group" class="form-group">
                                 <label for="statusProduto">Status do Produto:</label>
                                 <select class="form-control status" id="statusProduto" name="statusProduto" required>
                                     <option value="" selected disabled>Selecione o status</option>

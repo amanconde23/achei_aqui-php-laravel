@@ -60,6 +60,9 @@
                             @endif
                         @else
                             <li class="nav-item dropdown home-navbar-logado">
+                                @if (Auth::user()->usertype === 'admin')
+                                    <a class="nav-link nav-link-header home-navbar-link" href="{{ url('painel-admin') }}">Painel do Admin</a>
+                                @endif
                                 <a class="nav-link nav-link-header home-navbar-link" href="{{ url('painel-usuario') }}">Painel do Usuário</a>
 
                                 <a id="navbarDropdown" class="nav-link nav-link-header dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

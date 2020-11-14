@@ -81,13 +81,16 @@ class ProductController extends Controller
         $product->statusProduto = $request->statusProduto;
 
         if($request->hasfile('image')){
-            $file = $request->file('image');            
+            $file = $request->file('image');  
+            $extension = $file->getMimeType();         
+        } 
+        if($extension === 'image/png' || $extension === 'image/jpg' || $extension === 'image/jpeg'){
             $product->image = $file->store('produtos');
+            $product->save();
         } else {
-            $product->image = '';
+            Alert::info('Extensão de arquivo inválida', 'Favor inserir imagem no formato png, jpg ou jpeg');
+            return redirect()->route('product-new');
         }
-        
-        $product->save();
         
         return redirect()->route('products');
     }
@@ -123,12 +126,16 @@ class ProductController extends Controller
         $product->name = $request->name;
         $product->category = $request->category;
         $product->statusProduto = $request->statusProduto;
-        if($request->hasFile('image')){
-            $file = $request->file('image');
-            $product->image = $file->store('produtos');
+        if($request->hasfile('image')){
+            $file = $request->file('image');  
+            $extension = $file->getMimeType();         
         } 
-        
-        $product->save();
+        if($extension === 'image/png' || $extension === 'image/jpg' || $extension === 'image/jpeg'){
+            $product->image = $file->store('produtos');
+            $product->save();
+        } else {
+            Alert::info('Extensão de arquivo inválida', 'Favor inserir imagem no formato png, jpg ou jpeg');
+        }
                 
         return redirect()->route('products');
     }

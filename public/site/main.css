@@ -175,6 +175,11 @@ html, body{
     margin: 40px auto;
     display: block;
 }
+
+#espacamento-form-group{
+    padding-bottom: 20px;
+}
+
 .searchbar-users-form{
     display: flex;
     flex-direction: column;

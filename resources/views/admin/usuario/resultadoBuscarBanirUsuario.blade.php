@@ -32,13 +32,13 @@
                             <p><strong>Email: </strong> {{ $user->email }}</p>
                             <p><strong>Telefone: </strong> {{ $user->phone }}</p>
                             <div class="btn-crud">
-                        <form action="{{ route('user-destroy-admin', ['user' => $user->id]) }}" method="post">
-                            @csrf
-                            @method('delete')
-                            <input type="hidden" class="delete_val" value="{{ $user->id }}">
-                            <button type="submit" class="btn btn-danger ban-user-btn">Banir Usuário</button>
-                        </form>
-                    </div>
+                                <form action="{{ route('user-destroy-admin', ['user' => $user->id]) }}" method="post">
+                                    @csrf
+                                    @method('delete')
+                                    <input type="hidden" class="delete_val" value="{{ $user->id }}">
+                                    <button type="submit" class="btn btn-danger ban-user-btn">Banir Usuário</button>
+                                </form>
+                            </div>
                         </div>
                     </div>
                     @endforeach
