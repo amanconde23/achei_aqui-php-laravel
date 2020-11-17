@@ -17,10 +17,9 @@ class UserRatingController extends Controller
      */
     public function index()
     {
-        $userRatings = UserRating::all();
+        $userRatings = UserRating::orderBy('avaliado')->get();
         return view('admin/usuario/userRatings', [
             'userRatings' => $userRatings,
-
         ]);
     }
 

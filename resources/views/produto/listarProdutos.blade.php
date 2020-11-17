@@ -7,12 +7,12 @@
                 <h1 class="titulo-pagina">Meus Produtos</h1>
                     <table class="table table-bordered table-hover">
                         <thead>
-                            <tr>
-                                <td>Imagem:</td>
-                                <td>Nome:</td>
-                                <td>Categoria:</td>
-                                <td>Status:</td>
-                                <td>Ações:</td>
+                            <tr class="bg-info header-table">
+                                <td>Imagem</td>
+                                <td>Nome</td>
+                                <td>Categoria</td>
+                                <td>Status</td>
+                                <td>Ações</td>
                             </tr>
                         </thead>
                         <tbody>

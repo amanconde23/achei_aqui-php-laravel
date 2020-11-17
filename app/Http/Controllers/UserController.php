@@ -33,7 +33,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        $userRating = UserRating::where(['avaliado'=>Auth::user()->name])->get();
+        $userRating = UserRating::where(['avaliado'=> $user->name])->get();
         return view('usuario/verUsuario', [
             'user' => $user,
             'userRating' => $userRating

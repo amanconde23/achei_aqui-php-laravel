@@ -8,11 +8,11 @@
                     <h1 class="titulo-pagina">Resultado da busca por {{ $query }} :</h1>
                     <table class="table table-bordered table-hover">
                         <thead>
-                            <tr>
-                                <td>Nome:</td>
-                                <td>Categoria:</td>
-                                <td>Status:</td>
-                                <td>Ação:</td>
+                            <tr class="bg-info header-table">
+                                <td>Nome</td>
+                                <td>Categoria</td>
+                                <td>Status</td>
+                                <td>Ação</td>
                             </tr>
                         </thead>
                         <tbody>

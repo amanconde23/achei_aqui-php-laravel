@@ -7,13 +7,13 @@
                 @if(isset($details))
                     <h1 class="titulo-pagina">Resultado da busca por {{ $query }} :</h1>
                     <table class="table table-bordered table-hover">
-                        <tr>
+                        <tr class="bg-info header-table">
                             <td>ID</td>
-                            <td>Nome:</td>
-                            <td>Telefone:</td>
-                            <td>Permissão:</td>
-                            <td>Email:</td>
-                            <td>Ações:</td>
+                            <td>Nome</td>
+                            <td>Telefone</td>
+                            <td>Permissão</td>
+                            <td>Email</td>
+                            <td>Ações</td>
                         </tr>
                         @foreach($details as $user)
                         <tr>

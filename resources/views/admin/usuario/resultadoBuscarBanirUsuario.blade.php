@@ -8,10 +8,10 @@
                     <h2 class="subtitulo-pagina usuario-mal-avaliado">{{ $message }}</h2>
                     <h1 class="titulo-pagina">Resultado da busca por {{ $query }} :</h1>
                     <table class="table table-bordered table-hover">
-                        <tr>
-                            <td>Nome:</td>
-                            <td>Avaliação:</td>
-                            <td>Comentário:</td>
+                        <tr class="bg-info header-table">
+                            <td>Nome</td>
+                            <td>Avaliação</td>
+                            <td>Comentário</td>
                         </tr>
                         @foreach($details as $userRating)
                         <tr>

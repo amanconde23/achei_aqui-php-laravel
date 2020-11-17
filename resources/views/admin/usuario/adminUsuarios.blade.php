@@ -13,25 +13,24 @@
                 </form>
                 <h1 class="titulo-pagina">Usuários Cadastrados</h1>
                 <table class="table table-bordered table-hover">
-                    <tr>
+                    <tr class="bg-info header-table">
                         <td>ID</td>
-                        <td>Nome:</td>
-                        <td>Telefone:</td>
-                        <td>Permissão:</td>
-                        <td>Email:</td>
-                        <td>Ações:</td>
+                        <td>Nome</td>
+                        <td>Whatsapp</td>
+                        <td>Permissão</td>
+                        <td>Email</td>
+                        <td>Ações</td>
                     </tr>
 
                     @foreach ($users as $user)
                     <tr>
                         <td>{{ $user->id }}</td>
                         <td>{{ $user->name }}</td>
-                        <td>{{ $user->phone }}</td>
+                        <td><img class="whatsapp-icon" src="{{ asset('images/whatsapp.svg') }}" alt="Whatsapp"><a href="https://api.whatsapp.com/send?1=pt_BR&phone=55{{$user->phone}}&text=Olá {{$user->name}}, aqui é do site Achei Aqui, gostaríamos de entrar em contato com você" target="_blank">{{ $user->phone }}</a></td>
                         <td>{{ $user->usertype }}</td>
                         <td>{{ $user->email }}</td>
                         <td class="align-middle">
                             <div class="btn-crud">
-                                <a class="btn btn-warning" href="{{ route('user-edit-form', ['user' => $user->id]) }}">Editar</a>
                                 <form action="{{ route('user-destroy-admin', ['user' => $user->id]) }}" method="post">
                                     @csrf
                                     @method('delete')

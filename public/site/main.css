@@ -199,6 +199,14 @@ html, body{
     margin-bottom: 30px;
 }
 
+.header-table{
+    font-size: 20px;
+}
+
+.table th, .table td {
+    vertical-align: middle;
+}
+
 .searchbar-products{
     margin: 0;
 }
