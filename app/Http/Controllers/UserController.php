@@ -41,6 +41,36 @@ class UserController extends Controller
     }
 
     /**
+     * Mostra um usuario em detalhes no admin
+     *
+     * @param  \App\User  $user
+     * @return \Illuminate\Http\Response
+     */
+    public function showUserAdmin(User $user)
+    {
+        $rating = 'ruim';
+        $badRatingMessage = 'Este usuário está mal avaliado. Deve ser banido.';
+        $goodRatingMessage = 'Este usuário está bem avaliado. Nenhuma ação necessária.';
+        $userRating = UserRating::where(['avaliado'=> $user->name])->get();
+        $badRating = UserRating::where(['avaliado'=> $user->name])
+            ->where('rating', 'LIKE', '%'.$rating.'%')
+            ->get();
+        if(count($badRating) >= 3 && count($userRating) > 0){
+            return view('admin/usuario/verUsuarioAdminBadRating', [
+                'user' => $user,
+                'userRating' => $userRating,
+                'message' => $badRatingMessage
+            ]);
+        } else {
+            return view('admin/usuario/verUsuarioAdminGoodRating', [
+                'user' => $user,
+                'userRating' => $userRating,
+                'message' => $goodRatingMessage
+            ]);
+        }
+
+    }
+    /**
      * Formulario de editar usuario
      *
      * @param  \App\User  $user
@@ -118,14 +148,14 @@ class UserController extends Controller
             ])
                 ->withDetails($userRating)
                 ->withQuery($search)
-                ->withMessage('Esse usuário deve ser banido!');
+                ->withMessage('Este usuário está mal avaliado. Deve ser banido.');
         }else if(count($badRating) > 3 || count($userRating) > 0){
             return view('admin/usuario/resultadoBuscaUsuario', [
                 'user' => $user
             ])
                 ->withDetails($userRating)
                 ->withQuery($search)
-                ->withMessage('Esse usuário está bem avaliado!');
+                ->withMessage('Este usuário está bem avaliado. Nenhuma ação necessária.');
         }
         else{
             return view('admin/usuario/resultadoBuscaUsuario')

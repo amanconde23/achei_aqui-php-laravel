@@ -53,4 +53,20 @@ class UserRatingController extends Controller
         
         return redirect()->route('user-pannel');
     }
+
+    public function filterBadRatings(Request $request)
+    {
+        if($request->has('check-filter-rating')){
+            $userRatings = UserRating::where('rating', 'LIKE', 'ruim')->get();
+            if(count($userRatings) > 0){
+                return view('admin/usuario/resultadoBuscaAvaliacaoRuim', [
+                    'userRatings' => $userRatings
+                ]);
+            }else{
+                echo ('Nenhum resultado encontrado');
+            }
+        }else{
+            echo ('Nenhum resultado encontrado');
+        }
+    }
 }

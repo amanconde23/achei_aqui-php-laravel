@@ -6,13 +6,13 @@
             <div class="col-md-12 ">
                 <form class="searchbar-products-form" action="{{ route('search-products-results') }}" method="GET">
                     <div class="form-group searchbar-products">
-                        @csrf
                         <div class="form-check searchbar-products-content">
+                            @csrf
                             <input class="form-check-input" type="checkbox" value="check-produto-disponivel" name="check-produto-disponivel">
                             <label class="form-check-label  searchbar-products-check-label" for="check-produto-disponivel">
                                 Mostrar somente produtos disponíveis
                             </label>
-                            <input type="text" name="search" placeholder="Digite a sua busca">
+                            <input type="text" name="search" placeholder="Digite o produto que procura" size="40">
                             <button type="submit" class="btn btn-success btn-searchbar">Buscar</button>
                         </div>
                     </div>

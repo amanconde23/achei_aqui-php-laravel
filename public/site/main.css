@@ -190,6 +190,13 @@ html, body{
     margin-bottom: 30px;
 }
 
+.searchbar-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
 .searchbar-products-form{
     display: flex;
     justify-content: center;
@@ -346,6 +353,11 @@ footer{
 
 .error{
     border: 2px solid #fcd3d3 !important;
+}
+
+.texto-registrar{
+    margin: 0;
+    font-style: italic;
 }
 
 @media(max-width:770px){

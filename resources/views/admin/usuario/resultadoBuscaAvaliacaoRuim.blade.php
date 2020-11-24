@@ -4,19 +4,14 @@
 <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <form class="searchbar-users-form" action="{{ route('search-badrating-results') }}" method="GET">
-                    <div class="form-group searchbar-products">
-                        <div class="form-check searchbar-products-content">
-                            @csrf
-                            <input class="form-check-input" type="checkbox" value="check-filter-rating" name="check-filter-rating">
-                            <label class="form-check-label  searchbar-products-check-label" for="check-filter-rating">
-                                Mostrar somente avaliações negativas
-                            </label>
-                            <button type="submit" class="btn btn-success btn-searchbar">Filtrar</button>
-                        </div>
+                <form action="{{ route('search-user-results') }}" method="GET">
+                    <div class="form-group searchbar-form">
+                        @csrf
+                        <input type="text" name="searchUser" placeholder="Digite o usuário que procura" size="40">
+                        <button type="submit" class="btn btn-success btn-searchbar">Buscar</button>
                     </div>
                 </form>
-                <h1 class="titulo-pagina">Avaliações dos Usuários</h1>
+                <h1 class="titulo-pagina">Usuários com Avaliações Ruins</h1>
                     <table class="table table-bordered table-hover">
                         <thead>
                             <tr class="bg-info header-table">

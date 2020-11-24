@@ -23,7 +23,6 @@
                                     <option value="Eletronicos">Eletrônicos</option>
                                     <option value="Moveis">Móveis</option>
                                     <option value="Ferramentas">Ferramentas</option>
-                                    <option value="Moveis">Móveis</option>
                                     <option value="Outros">Outros</option>
                                 </select>
                             </div>                  

@@ -67,8 +67,9 @@
             <div class="col-md-12 col-sm-8">
                 <h3 class="home-about-us-h3">Sobre Nós</h3>
                 <p class="home-about-us-p">
-                    Buscamos oferecer um ambiente seguro de compartilhamento de objetos. Sabe aquele objeto que você comprou, usou uma vez, e deixou encostado em um canto? Que tal repassá-lo para alguém que irá fazer bom uso dele? Vamos promover a economia colaborativa e deixar de lado o consumismo!
-                    Aqui você pode encontrar um objeto que esteja precisando, entrar em contato com o proprietário, e combinar a doação!
+                    Sabe aquele objeto que você comprou, usou uma vez, e deixou encostado em um canto? Que tal repassá-lo para alguém que irá fazer bom uso dele? <br>
+                    Vamos promover a economia colaborativa e deixar de lado o consumismo! <br>
+                    Aqui você pode encontrar, em um ambiente seguro, um objeto que esteja precisando, entrar em contato com o proprietário, e combinar a doação!
                 </p>
                 <a class="btn-participar-home" href="{{ route('register') }}">Participar</a>
             </div>

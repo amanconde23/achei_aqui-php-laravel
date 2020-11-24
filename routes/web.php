@@ -46,6 +46,18 @@ Route::group(['middleware' => ['auth','admin']], function(){
     // ação de apagar usuario
     Route::delete('admin/usuario/destroy/{user}', 'UserController@destroyUserAdmin')->name('user-destroy-admin');
     // **END DELETE USER ** //
+
+    // **SHOW USER ** //
+    Route::get('admin/show/{user}', 'UserController@showUserAdmin')->name('show-user-admin');
+    // **END USER ** //
+
+    Route::get('admin/show/userbadrating', function () {
+        return view('admin/usuario/verUsuarioAdminBadRating');
+    });
+
+    Route::get('admin/show/usergoodrating', function () {
+        return view('admin/usuario/verUsuarioAdminGoodRating');
+    });
 });
 // **END ROTAS ACESSADAS PELO ADMIN  ** //
 
@@ -100,6 +112,16 @@ Route::get('resultado-busca-usuario', function () {
     return view('admin/usuario/resultadoBuscaUsuario');
 });
 // **END SEARCHBAR USER ** //
+
+// **FILTER BAD RATING ** //
+// ação de buscar
+Route::get('buscar-avaliacoes-ruins', 'UserRatingController@filterBadRatings')->name('search-badrating-results')->middleware('auth');
+
+// mostrar resultados da busca
+Route::get('resultado-avaliacoes-ruins', function () {
+    return view('admin/usuario/resultadoBuscaAvaliacaoRuim');
+});
+// **END FILTER BAD RATING ** //
 
 // mostrar resultados da busca e banir usuario
 Route::get('resultado-busca-bane-usuario', function () {

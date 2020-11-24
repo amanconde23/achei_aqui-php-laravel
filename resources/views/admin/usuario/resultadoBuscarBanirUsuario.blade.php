@@ -30,7 +30,7 @@
                         </div>
                         <div class="card-body card-body-content">
                             <p><strong>Email: </strong> {{ $user->email }}</p>
-                            <p><strong>Telefone: </strong> {{ $user->phone }}</p>
+                            <p><strong>Telefone: </strong> <img class="whatsapp-icon" src="{{ asset('images/whatsapp.svg') }}" alt="Whatsapp"><a href="https://api.whatsapp.com/send?1=pt_BR&phone=55{{$user->phone}}&text=Olá {{$user->name}}, aqui é do site Achei Aqui, gostaríamos de informar que você recebeu muitas avaliações negativas, portanto terá sua conta excluída." target="_blank">{{ $user->phone }}</a></p>
                             <div class="btn-crud">
                                 <form action="{{ route('user-destroy-admin', ['user' => $user->id]) }}" method="post">
                                     @csrf
