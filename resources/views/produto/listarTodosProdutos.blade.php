@@ -4,22 +4,22 @@
 <div class="container">
         <div class="row">
             <div class="col-md-12 ">
-                <form class="searchbar-products-form" action="{{ route('search-products-results') }}" method="GET">
-                    <div class="form-group searchbar-products">
-                        <div class="form-check searchbar-products-content">
-                            @csrf
-                            <input class="form-check-input" type="checkbox" value="check-produto-disponivel" name="check-produto-disponivel">
-                            <label class="form-check-label  searchbar-products-check-label" for="check-produto-disponivel">
-                                Mostrar somente produtos disponíveis
-                            </label>
-                            <input type="text" name="search" placeholder="Digite o produto que procura" size="40">
-                            <button type="submit" class="btn btn-success btn-searchbar">Buscar</button>
-                        </div>
+                <form class="searchbar-products" action="{{ route('search-products-results') }}" method="GET">
+                    <div class="form-group">
+                        @csrf
+                        <input type="text" name="search" placeholder="Digite o produto que procura" size="70">
+                        <button type="submit" class="btn btn-success btn-searchbar">Buscar</button>
                     </div>
-                    
+                    <div class="form-group">
+                        @csrf
+                        <input class="form-check-input" type="checkbox" value="check-produto-disponivel" name="check-produto-disponivel">
+                        <label class="form-check-label  searchbar-products-check-label" for="check-produto-disponivel">
+                            Mostrar somente produtos disponíveis
+                        </label>
+                    </div>
                 </form>
                 
-                <h1 class="titulo-pagina">Produtos no Portal</h1>
+                <h1 class="titulo-pagina titulo-pagina-listar-produtos">Produtos no Portal</h1>
 
                 <table class="table table-bordered table-hover">
                     <thead>
@@ -41,7 +41,7 @@
 
                             <td class="align-middle">
                                 <div class="btn-crud">
-                                    <a class="btn btn-primary" href="{{ route('product-show-details', ['product' => $product->id]) }}">Ver</a>
+                                    <a class="btn btn-primary" href="{{ route('product-show-details', ['product' => $product->id]) }}">Ver Produto</a>
                                 </div>
                             </td>
                         </tr>

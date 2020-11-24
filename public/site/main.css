@@ -197,6 +197,33 @@ html, body{
     margin-bottom: 30px;
 }
 
+.search-user{
+    margin-bottom: 0;
+}
+
+.titulo-pagina-listar-produtos{
+    margin-top: 20px;
+}
+
+.searchbar-products{
+    border: 1px solid #dee2e6;
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.searchbar-user{
+    border: 1px solid #dee2e6;
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
 .searchbar-products-form{
     display: flex;
     justify-content: center;

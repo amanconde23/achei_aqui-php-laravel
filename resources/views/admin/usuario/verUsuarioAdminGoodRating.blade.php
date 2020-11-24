@@ -11,7 +11,7 @@
                     </div>
                     <div class="card-body card-body-content">
                         <p><strong>Email: </strong> {{ $user->email }}</p>
-                        <p><strong>Telefone: </strong> {{ $user->phone }}</p>
+                        <p><strong>Telefone: </strong> <img class="whatsapp-icon" src="{{ asset('images/whatsapp.svg') }}" alt="Whatsapp"><a href="https://api.whatsapp.com/send?1=pt_BR&phone=55{{$user->phone}}&text=Olá {{$user->name}}, aqui é do site Achei Aqui, gostaríamos entrar em contato." target="_blank">{{ $user->phone }}</a></p>
                     </div>
                 </div>
             </div>

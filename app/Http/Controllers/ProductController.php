@@ -82,14 +82,16 @@ class ProductController extends Controller
 
         if($request->hasfile('image')){
             $file = $request->file('image');  
-            $extension = $file->getMimeType();         
-        } 
-        if($extension === 'image/png' || $extension === 'image/jpg' || $extension === 'image/jpeg'){
-            $product->image = $file->store('produtos');
-            $product->save();
+            $extension = $file->getMimeType();    
+            if($extension === 'image/png' || $extension === 'image/jpg' || $extension === 'image/jpeg'){
+                $product->image = $file->store('produtos');
+                $product->save();
+            } else {
+                Alert::info('Extensão de arquivo inválida', 'Favor inserir imagem no formato png, jpg ou jpeg');
+            }     
         } else {
-            Alert::info('Extensão de arquivo inválida', 'Favor inserir imagem no formato png, jpg ou jpeg');
-            return redirect()->route('product-new');
+            $product->image = '';
+            $product->save();
         }
         
         return redirect()->route('products');
@@ -123,20 +125,25 @@ class ProductController extends Controller
     {
         Alert::success('Sucesso!', 'Produto Alterado com Sucesso!');
         $product = Product::find($id);
+        
         $product->name = $request->name;
         $product->category = $request->category;
         $product->statusProduto = $request->statusProduto;
+
         if($request->hasfile('image')){
             $file = $request->file('image');  
-            $extension = $file->getMimeType();         
-        } 
-        if($extension === 'image/png' || $extension === 'image/jpg' || $extension === 'image/jpeg'){
-            $product->image = $file->store('produtos');
-            $product->save();
+            $extension = $file->getMimeType();    
+            if($extension === 'image/png' || $extension === 'image/jpg' || $extension === 'image/jpeg'){
+                $product->image = $file->store('produtos');
+                $product->save();
+            } else {
+                Alert::info('Extensão de arquivo inválida', 'Favor inserir imagem no formato png, jpg ou jpeg');
+            }     
         } else {
-            Alert::info('Extensão de arquivo inválida', 'Favor inserir imagem no formato png, jpg ou jpeg');
+            $product->image = '';
+            $product->save();
         }
-                
+        
         return redirect()->route('products');
     }
 
