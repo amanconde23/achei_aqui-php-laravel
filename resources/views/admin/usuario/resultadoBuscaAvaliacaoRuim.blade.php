@@ -11,7 +11,7 @@
                         <button type="submit" class="btn btn-success btn-searchbar">Buscar</button>
                     </div>
                 </form>
-                <h1 class="titulo-pagina">Usuários com Avaliações Ruins</h1>
+                <h1 class="titulo-pagina">Usuários com Avaliações Negativas</h1>
                     <table class="table table-bordered table-hover">
                         <thead>
                             <tr class="bg-info header-table">

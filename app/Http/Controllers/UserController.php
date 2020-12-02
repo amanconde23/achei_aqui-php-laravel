@@ -112,7 +112,7 @@ class UserController extends Controller
     {
         $user = User::findOrFail($id);
         $user->delete();
-        return response()->json(['status'=>'Sua conta foi excluída com sucesso!']);
+        return response()->json(['status'=>'Usuário excluído com sucesso!']);
     }
 
     /**
