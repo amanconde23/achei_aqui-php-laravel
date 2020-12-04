@@ -19,7 +19,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::all();
+        $users = User::orderBy('name')->get();
         return view('admin/usuario/adminUsuarios', [
             'users' => $users
         ]);
