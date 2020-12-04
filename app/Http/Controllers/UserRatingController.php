@@ -29,7 +29,7 @@ class UserRatingController extends Controller
      */
     public function create(UserRating $userRating)
     {
-        $users = User::all();
+        $users = User::where('id', '!=', Auth::user()->id)->get();
         return view('usuario/rateUser', [
             'userRating' => $userRating,
             'users' => $users

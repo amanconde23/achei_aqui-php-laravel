@@ -39,10 +39,10 @@
                             <tr>
                                 <td class="align-middle">{{ $userRating->avaliado }}</td>
                                 <td class="align-middle">{{ $userRating->rating }}</td>
-                                <td class="align-middle">{{ $userRating->comment }}</td>
+                                <td class="align-middle">{{ $userRating->comment }}</td>                                
                                 <td class="align-middle">
                                     <div class="btn-crud">
-                                        <a class="btn btn-primary" href="{{ route('show-user-admin', ['user' => $userRating->user_id]) }}">Ver Usuário</a>
+                                        <a class="btn btn-primary" href="{{ route('show-user-admin', ['user' => $userRating->user->id]) }}">Ver Usuário</a>
                                     </div>
                                 </td>
                             </tr>
